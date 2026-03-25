@@ -1,0 +1,171 @@
+---
+import '../styles/global.css'
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="preload" href="/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/SourceSans3-latin.woff2" as="font" type="font/woff2" crossorigin />
+		<title>Contact | Start & Scale Growth Advisory</title>
+		<meta name="description" content="Book a 30-minute call or send a message. No pitch, no pressure. Growth advisory for founders and operators." />
+	</head>
+	<body class="bg-background text-body">
+
+		<!-- Navigation -->
+		<nav class="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-sm">
+			<div class="max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16">
+				<a href="/" class="font-display text-white text-lg font-semibold tracking-tight cursor-pointer">Start & Scale</a>
+				<div class="hidden md:flex items-center gap-8">
+					<a href="/about" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">About</a>
+					<a href="/services" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Services</a>
+					<a href="/case-studies" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Case Studies</a>
+					<a href="/blog" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Blog</a>
+					<a href="/resources" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Resources</a>
+					<a href="/contact" class="text-nav text-accent-muted transition-colors duration-150 cursor-pointer">Contact</a>
+				</div>
+				<a href="/contact" class="bg-accent text-white text-btn px-5 py-2.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer">Book a Call</a>
+			</div>
+		</nav>
+
+		<main>
+			<!-- Hero -->
+			<section class="bg-dark pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-28">
+				<div class="max-w-6xl mx-auto px-5 sm:px-8">
+					<h1 class="font-display text-white text-h1 lg:text-[3.75rem] lg:leading-[1.05] max-w-4xl">
+						Let's talk.
+					</h1>
+					<p class="text-body-lg text-body-light mt-6 max-w-2xl">
+						Pick a time on the calendar, or send a message. Either way, I'll get back to you within 24 hours.
+					</p>
+				</div>
+			</section>
+
+			<!-- Two-Column: Calendly + Form -->
+			<section class="bg-background py-12 sm:py-16 lg:py-20">
+				<div class="max-w-6xl mx-auto px-5 sm:px-8">
+					<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+
+						<!-- Schedule a Call -->
+						<div>
+							<h2 class="font-display text-headline text-h2 lg:text-[2.25rem] lg:leading-[1.1]">Schedule a call</h2>
+							<p class="text-body text-body mt-4">30 minutes. No pitch, no prep needed. Just a conversation about where you are.</p>
+
+							<!-- Calendly Placeholder -->
+							<div class="mt-8 bg-surface rounded p-8 lg:p-12 text-center min-h-[400px] flex flex-col items-center justify-center">
+								<p class="font-display text-headline text-h4">Calendly widget</p>
+								<p class="text-small text-body mt-2">Scheduling embed will be configured after launch.</p>
+								<a href="https://calendly.com" class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block mt-6">
+									Book on Calendly &rarr;
+								</a>
+							</div>
+						</div>
+
+						<!-- Send a Message -->
+						<div>
+							<h2 class="font-display text-headline text-h2 lg:text-[2.25rem] lg:leading-[1.1]">Send a message</h2>
+							<p class="text-body text-body mt-4">I respond to every message within one business day.</p>
+
+							<form class="mt-8 space-y-6" action="#" method="POST">
+								<div>
+									<label for="name" class="text-small text-headline font-semibold block mb-2">Name <span class="text-accent">*</span></label>
+									<input
+										type="text"
+										id="name"
+										name="name"
+										required
+										class="w-full bg-surface border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150"
+										placeholder="Your name"
+									/>
+								</div>
+
+								<div>
+									<label for="email" class="text-small text-headline font-semibold block mb-2">Email <span class="text-accent">*</span></label>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										required
+										class="w-full bg-surface border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150"
+										placeholder="you@company.com"
+									/>
+								</div>
+
+								<div>
+									<label for="company" class="text-small text-headline font-semibold block mb-2">Company</label>
+									<input
+										type="text"
+										id="company"
+										name="company"
+										class="w-full bg-surface border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150"
+										placeholder="Your company"
+									/>
+								</div>
+
+								<div>
+									<label for="message" class="text-small text-headline font-semibold block mb-2">Message</label>
+									<textarea
+										id="message"
+										name="message"
+										rows="5"
+										class="w-full bg-surface border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150 resize-y"
+										placeholder="What's on your mind?"
+									></textarea>
+								</div>
+
+								<button
+									type="submit"
+									class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block"
+								>
+									Send Message
+								</button>
+							</form>
+						</div>
+					</div>
+
+					<!-- Location -->
+					<div class="mt-16 pt-8 border-t border-border">
+						<p class="text-small text-body">Marblehead, MA &middot; Working with founders and operators everywhere.</p>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer -->
+		<footer class="bg-dark py-12 sm:py-16 border-t border-dark-surface">
+			<div class="max-w-6xl mx-auto px-5 sm:px-8">
+				<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+					<div>
+						<a href="/" class="font-display text-white text-lg font-semibold tracking-tight">Start & Scale</a>
+						<p class="text-small text-body-light mt-3">Growth advisory for founders and operators.</p>
+						<p class="text-small text-body-light mt-1">Marblehead, MA</p>
+					</div>
+					<div>
+						<p class="text-small text-body-light uppercase tracking-widest mb-4">Navigate</p>
+						<div class="flex flex-col gap-2">
+							<a href="/about" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">About</a>
+							<a href="/services" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Services</a>
+							<a href="/case-studies" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Case Studies</a>
+							<a href="/blog" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Blog</a>
+						</div>
+					</div>
+					<div>
+						<p class="text-small text-body-light uppercase tracking-widest mb-4">Connect</p>
+						<div class="flex flex-col gap-2">
+							<a href="/contact" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Contact</a>
+							<a href="/resources" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Resources</a>
+						</div>
+					</div>
+				</div>
+				<div class="mt-12 pt-8 border-t border-dark-surface">
+					<p class="text-small text-body-light">&copy; 2026 Start & Scale. All rights reserved.</p>
+				</div>
+			</div>
+		</footer>
+
+	</body>
+</html>
