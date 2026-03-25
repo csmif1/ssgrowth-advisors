@@ -1,5 +1,5 @@
 ---
-
+import '../styles/global.css'
 ---
 
 <html lang="en">
@@ -9,9 +9,33 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<title>Start & Scale Growth Advisors</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-background text-secondary">
+		<main class="max-w-6xl mx-auto px-4 py-24">
+			<h1 class="text-display text-primary">Start & Scale</h1>
+			<p class="text-body-lg text-muted mt-4">Design system loaded. Ready to build.</p>
+			<div class="mt-8 flex gap-4">
+				<a href="#" class="inline-block bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-hover transition-colors duration-150 cursor-pointer">Book a Call</a>
+				<a href="#" class="inline-block text-accent font-medium hover:text-accent-hover transition-colors duration-150 cursor-pointer py-3">See Case Studies &rarr;</a>
+			</div>
+			<div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8">
+				<div class="border border-border rounded-lg p-6 bg-surface">
+					<p class="text-stat text-accent">$120M</p>
+					<p class="text-small text-muted mt-2">ARR scaled in 24 months</p>
+				</div>
+				<div class="border border-border rounded-lg p-6 bg-surface">
+					<p class="text-stat text-accent">42</p>
+					<p class="text-small text-muted mt-2">Person org built in 8 months</p>
+				</div>
+				<div class="border border-border rounded-lg p-6 bg-surface">
+					<p class="text-stat text-accent">4x</p>
+					<p class="text-small text-muted mt-2">Promoted at WeWork</p>
+				</div>
+			</div>
+		</main>
 	</body>
 </html>

@@ -1,1 +1,91 @@
 @import "tailwindcss";
+
+/*
+ * Start & Scale Growth Advisors — Design System Theme
+ * Source of truth: design-system/MASTER.md
+ */
+
+@theme {
+  /* Colors */
+  --color-primary: #0F172A;
+  --color-secondary: #334155;
+  --color-accent: #B45309;
+  --color-accent-hover: #92400E;
+  --color-muted: #64748B;
+  --color-background: #FFFFFF;
+  --color-surface: #F8FAFC;
+  --color-border: #E2E8F0;
+  --color-dark: #020617;
+
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Font sizes — mobile-first, use responsive utilities for desktop */
+  --text-display: 2.25rem;
+  --text-display--line-height: 1.1;
+  --text-display--font-weight: 700;
+
+  --text-h2: 1.875rem;
+  --text-h2--line-height: 1.15;
+  --text-h2--font-weight: 700;
+
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 1.25;
+  --text-h3--font-weight: 600;
+
+  --text-h4: 1.25rem;
+  --text-h4--line-height: 1.3;
+  --text-h4--font-weight: 600;
+
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.6;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+  --text-small--font-weight: 500;
+
+  --text-stat: 2.5rem;
+  --text-stat--line-height: 1;
+  --text-stat--font-weight: 700;
+}
+
+/* Base styles */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-secondary);
+    background-color: var(--color-background);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4 {
+    color: var(--color-primary);
+  }
+
+  /* Max line length for readability */
+  p, li {
+    max-width: 72ch;
+  }
+
+  /* Focus states for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
