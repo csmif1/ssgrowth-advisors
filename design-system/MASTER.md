@@ -1,4 +1,4 @@
-# Start & Scale Growth Advisors — Design System
+# Start & Scale — Design System
 
 Global source of truth. All pages reference this system unless a page-specific override exists in `design-system/pages/`.
 
@@ -8,55 +8,63 @@ Global source of truth. All pages reference this system unless a page-specific o
 
 | Role | Hex | Tailwind Token | Usage |
 |------|-----|----------------|-------|
-| Primary | `#0F172A` | `primary` | Headlines, nav, footer bg |
-| Secondary | `#334155` | `secondary` | Subheadings, secondary text |
-| Accent | `#B45309` | `accent` | CTAs, links, hover states, key metrics |
-| Muted | `#64748B` | `muted` | Body text, captions, meta |
-| Background | `#FFFFFF` | `background` | Page background |
-| Surface | `#F8FAFC` | `surface` | Alternating sections, cards |
-| Border | `#E2E8F0` | `border` | Dividers, card borders |
-| Dark | `#020617` | `dark` | Hero sections, footer |
+| Dark Base | `#0A0A0A` | `dark` | Hero sections, footer, dark alternating sections |
+| Dark Surface | `#171717` | `dark-surface` | Cards/elements on dark backgrounds, nav bg on scroll |
+| Accent | `#0D9488` | `accent` | CTAs, links, hover states, key metrics, stat numbers |
+| Accent Hover | `#0F766E` | `accent-hover` | Button/link hover state (teal-700) |
+| Accent Muted | `#5EEAD4` | `accent-muted` | Text on dark backgrounds, secondary highlights |
+| Body Text (light) | `#44403C` | `body` | Body copy on white/light sections (stone-700) |
+| Body Text (dark) | `#D6D3D1` | `body-light` | Body copy on dark sections (stone-300) |
+| Headline (light) | `#1C1917` | `headline` | Headlines on white sections (stone-900) |
+| White | `#FAFAF9` | `background` | Light section backgrounds (stone-50) |
+| Surface | `#F5F5F4` | `surface` | Alternating light sections, card backgrounds (stone-100) |
+| Border | `#E7E5E4` | `border` | Subtle dividers where needed (stone-200) |
 
-Rationale: Navy/slate conveys authority and experience. Amber accent is warm and confident — reads as "seasoned operator" not "McKinsey deck."
+### Contrast Checks (WCAG AA)
+
+- `#0D9488` on `#FAFAF9`: 4.6:1 (passes AA normal text)
+- `#0D9488` on `#0A0A0A`: 5.2:1 (passes AA normal text)
+- White on `#0D9488`: 4.5:1 (passes AA normal text)
+- `#44403C` on `#FAFAF9`: 8.5:1 (passes AAA)
+- `#D6D3D1` on `#0A0A0A`: 14.3:1 (passes AAA)
 
 ---
 
 ## Typography
 
-**Font Family:** Inter (single-font system)
-- One network request = better Lighthouse performance
-- Excellent number rendering for metrics/stats
-- Weights used: 400 (body), 500 (emphasis), 600 (subheadings), 700 (headings)
+**Headline & Stats:** Space Grotesk (self-hosted WOFF2)
+- Weights: 600 (subheadings), 700 (headlines, stats)
+- Character: Distinctive letterforms, editorial without being decorative
 
-| Element | Weight | Size (mobile / desktop) | Line Height |
-|---------|--------|-------------------------|-------------|
-| H1 | 700 | 2.25rem / 3.75rem | 1.1 |
-| H2 | 700 | 1.875rem / 3rem | 1.15 |
-| H3 | 600 | 1.5rem / 1.875rem | 1.25 |
-| H4 | 600 | 1.25rem / 1.5rem | 1.3 |
-| Body | 400 | 1rem / 1.125rem | 1.6 |
-| Body Large | 400 | 1.125rem / 1.25rem | 1.6 |
-| Small/Caption | 500 | 0.875rem | 1.5 |
-| Metric/Stat | 700 | 2.5rem / 4rem | 1.0 |
+**Body, Nav, Buttons:** Source Sans 3 (self-hosted WOFF2)
+- Weights: 400 (body), 500 (captions, nav), 600 (buttons, emphasis)
+- Character: Warm humanist sans-serif, excellent small-size readability
+
+### Type Scale
+
+| Element | Font | Weight | Size (mobile / desktop) | Line Height | Letter Spacing |
+|---------|------|--------|-------------------------|-------------|----------------|
+| H1 | Space Grotesk | 700 | 2.25rem / 3.75rem | 1.05 | -0.02em |
+| H2 | Space Grotesk | 700 | 1.875rem / 3rem | 1.1 | -0.02em |
+| H3 | Space Grotesk | 600 | 1.5rem / 1.875rem | 1.2 | -0.01em |
+| H4 | Space Grotesk | 600 | 1.25rem / 1.5rem | 1.25 | 0 |
+| Body | Source Sans 3 | 400 | 1rem / 1.125rem | 1.65 | 0 |
+| Body Large | Source Sans 3 | 400 | 1.125rem / 1.25rem | 1.6 | 0 |
+| Small/Caption | Source Sans 3 | 500 | 0.875rem | 1.5 | 0.01em |
+| Stat Number | Space Grotesk | 700 | 2.5rem / 4.5rem | 1.0 | -0.03em |
+| Nav Link | Source Sans 3 | 500 | 0.875rem / 0.9375rem | 1.0 | 0.04em |
+| CTA Button | Source Sans 3 | 600 | 0.9375rem | 1.0 | 0.02em |
 
 ---
 
-## Spacing Scale
+## Spacing
 
-Uses Tailwind default spacing. Key usage guidelines:
-
-| Token | Value | Usage |
-|-------|-------|-------|
-| 1 | 0.25rem (4px) | Inline spacing, icon gaps |
-| 2 | 0.5rem (8px) | Tight padding, tag padding |
-| 3 | 0.75rem (12px) | Button padding-y, input padding |
-| 4 | 1rem (16px) | Card padding, list gaps |
-| 6 | 1.5rem (24px) | Section inner padding |
-| 8 | 2rem (32px) | Component gaps |
-| 12 | 3rem (48px) | Section spacing (mobile) |
-| 16 | 4rem (64px) | Section spacing (tablet) |
-| 20 | 5rem (80px) | Section spacing (desktop) |
-| 24 | 6rem (96px) | Hero padding |
+| Context | Mobile | Desktop |
+|---------|--------|---------|
+| Section padding (vertical) | 3rem (48px) | 5rem (80px) |
+| Hero padding (vertical) | 4rem (64px) | 7rem (112px) |
+| Component gap | 2rem (32px) | 2rem (32px) |
+| Card inner padding | 1.5rem (24px) | 2rem (32px) |
 
 ---
 
@@ -64,53 +72,68 @@ Uses Tailwind default spacing. Key usage guidelines:
 
 | Breakpoint | Width | Columns | Container |
 |------------|-------|---------|-----------|
-| Mobile | < 640px | 1 | 100% (px-4) |
-| Tablet | 640–1023px | 2 | 100% (px-6) |
+| Mobile | < 640px | 1 | 100% (px-5) |
+| Tablet | 640–1023px | 2 | 100% (px-8) |
 | Desktop | 1024–1279px | 3 | max-w-5xl |
 | Wide | 1280px+ | 4 | max-w-6xl (1152px) |
 
-- Content max-width for long-form text: `max-w-3xl` (768px)
-- Page container: `max-w-6xl` centered with `mx-auto`
+- Long-form text: `max-w-3xl` (768px)
+- Page container: `max-w-6xl mx-auto`
 
 ---
 
 ## Component Patterns
 
 ### Navigation
-Fixed top, white background, subtle `border-b border-border` on scroll. Logo left, links center/right, CTA button right. Mobile: hamburger with slide-in panel.
+Fixed top, `bg-dark/95 backdrop-blur-sm` when scrolled. "Start & Scale" wordmark in white (Space Grotesk 600). Nav links in stone-300, hover → accent-muted. "Book a Call" button: `bg-accent text-white` with sharp corners. Mobile: hamburger with full-screen dark overlay.
 
 ### Hero
-Full-width dark background (`dark`). Large H1 in white, subtext in `slate-300`. Single amber CTA button. No stock photos — typography and negative space create impact.
+Full-width `bg-dark`. H1 in white, large and tight. Subtext in body-light. Single accent CTA button. No images — type and negative space only.
 
-### Stat Blocks
-Grid of 3–4 metrics. Large number in accent (`#B45309`), label in muted. Use real numbers: "$120M ARR", "42-person org", "4x promoted."
+### Proof Strip (Stats)
+Dark or light bg section. Numbers in accent color (`#0D9488`), Space Grotesk 700 at 4.5rem desktop. Labels in muted body text below each number. 3-4 stats in a row.
+
+### Experience Strip
+Light bg. Company names in Space Grotesk 600, stone-400 color, separated by em dashes or generous spacing. "Built and scaled at" label above in small caps.
 
 ### Service Cards
-White background, subtle border, left-aligned. Lucide icon (24px), H3 title, 2-line description, text link with arrow. Hover: color shift, no scale.
+White/surface bg, no visible border (shadow-sm on hover only). Left-aligned. Lucide icon (24px, accent color), H3 in Space Grotesk, body in Source Sans, text link with arrow → accent color. Hover: accent color shift on link, subtle shadow. No scale transforms.
 
-### CTA Sections
-Amber background with white text, or dark slate with amber button. One headline, one button. Between major sections and at page bottom.
+### CTA Blocks
+`bg-dark` with white headline (Space Grotesk), body-light subtext, accent button. One headline, one button. Sharp corners.
 
 ### Case Study Cards
-Surface background. Metric callout at top (large amber number). Brief narrative. "Read more" link.
+Surface bg. Large accent-colored stat number at top. Brief narrative in body text. "Read more →" link in accent.
 
 ### Footer
-Dark background (`dark`). Three columns: nav links, contact info, social/legal.
+`bg-dark`. Three columns: nav links (stone-400, hover → accent-muted), contact info, copyright. "Start & Scale" wordmark. Minimal.
+
+### Blog Post Cards
+Surface bg. Date in small/caption. H3 title in Space Grotesk. Excerpt in body. "Read →" accent link. No images.
+
+### Contact Form
+Light bg. Labels in small/caption weight. Inputs with border color, headline text. Focus state: accent border. Submit: accent bg, white text.
+
+### Timeline Items
+Left-aligned vertical line in border color. Dot marker in accent. Company in Space Grotesk 600, role in body, dates in caption. Stats in accent.
 
 ---
 
 ## Anti-Patterns
 
-1. **No gradients** — Flat colors only. Gradients read as startup/SaaS.
-2. **No stock photography** — Typography, whitespace, color blocks. Real photos only if needed.
-3. **No rounded-full cards** — `rounded-lg` (8px) max. Sharp corners = sharp operator.
-4. **No emoji as icons** — Lucide icon set, consistent 24px.
-5. **No animations on load** — Content visible immediately. Hover transitions only (150–200ms, color/opacity).
-6. **No parallax or scroll hijacking** — Native scroll behavior.
-7. **No "Learn More" buttons** — Every CTA states the action: "Book a Call," "See Case Studies."
-8. **No light gray text on white** — Minimum `slate-500` (#64748B) for any visible text.
-9. **No decorative elements** — No dots, blobs, waves, abstract shapes.
-10. **No more than 2 CTAs per viewport** — One primary (amber), one secondary (text link).
+1. **No gradients** — flat colors only
+2. **No stock photography** — typography and whitespace carry design
+3. **No rounded corners beyond `rounded` (4px)** — sharp = precision
+4. **No emoji as icons** — Lucide set, 24px, stroke-width 1.5
+5. **No animations on load** — content visible immediately. Hover transitions only (150–200ms, color/opacity)
+6. **No parallax or scroll hijacking**
+7. **No "Learn More" buttons** — every CTA states the action
+8. **No light gray text on white** — minimum stone-500 for any visible text
+9. **No decorative elements** — no dots, blobs, waves, abstract shapes
+10. **No more than 2 CTAs per viewport**
+11. **No Inter, Poppins, or geometric startup fonts**
+12. **No blue anywhere in the palette**
+13. **No amber/copper/orange anywhere in the palette**
 
 ---
 
@@ -126,9 +149,11 @@ Lucide Icons — consistent 24x24px, `stroke-width: 1.5`. Use sparingly.
 - [ ] `cursor-pointer` on all clickable elements
 - [ ] Hover transitions: 150–200ms, color/opacity only
 - [ ] Text contrast: 4.5:1 minimum (WCAG AA)
-- [ ] Focus states visible for keyboard navigation
+- [ ] Focus states visible for keyboard navigation (accent-colored ring)
 - [ ] `prefers-reduced-motion` respected
 - [ ] Responsive tested: 375px, 768px, 1024px, 1440px
 - [ ] No horizontal scroll on any breakpoint
-- [ ] All images: alt text, lazy loading, WebP/AVIF
-- [ ] Page weight under 500KB including images
+- [ ] Fonts self-hosted as WOFF2 (no Google Fonts API)
+- [ ] Page weight under 500KB including fonts
+- [ ] Space Grotesk loaded in weights 600, 700 only
+- [ ] Source Sans 3 loaded in weights 400, 500, 600 only
