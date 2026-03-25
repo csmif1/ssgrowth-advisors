@@ -1,0 +1,105 @@
+---
+export interface Props {
+  type?: 'organization' | 'blog'
+  blogTitle?: string
+  blogDescription?: string
+  blogImage?: string
+  blogPublished?: string
+  blogModified?: string
+  blogAuthor?: string
+}
+
+const {
+  type = 'organization',
+  blogTitle,
+  blogDescription,
+  blogImage,
+  blogPublished,
+  blogModified,
+  blogAuthor = 'Chris Smith'
+} = Astro.props
+
+const siteUrl = 'https://ssgrowthadvisors.com'
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Start & Scale",
+  "alternateName": "Start & Scale Growth Advisors",
+  "url": siteUrl,
+  "logo": `${siteUrl}/logo.png`,
+  "description": "Growth advisory for founder-led startups and SMBs. Revenue strategy, operations, fundraising, and AI automation advisory.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Marblehead",
+    "addressRegion": "MA",
+    "addressCountry": "US"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Chris Smith",
+    "jobTitle": "Founder & Growth Advisor",
+    "url": `${siteUrl}/about`,
+    "description": "15+ years in founder-led, high-velocity environments — WeWork, CloudKitchens, Apple. Revenue strategy, operations, and AI advisory for scaling companies.",
+    "alumniOf": [
+      {
+        "@type": "Organization",
+        "name": "WeWork"
+      },
+      {
+        "@type": "Organization",
+        "name": "CloudKitchens"
+      },
+      {
+        "@type": "Organization",
+        "name": "Apple"
+      }
+    ]
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "serviceType": [
+    "Revenue & GTM Strategy",
+    "Operations & Systems",
+    "Fundraising & Investor Readiness",
+    "AI & Automation Advisory"
+  ]
+}
+
+const blogSchema = blogTitle ? {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": blogTitle,
+  "description": blogDescription,
+  "image": blogImage ? `${siteUrl}${blogImage}` : `${siteUrl}/og-image.png`,
+  "datePublished": blogPublished,
+  "dateModified": blogModified || blogPublished,
+  "author": {
+    "@type": "Person",
+    "name": blogAuthor,
+    "url": `${siteUrl}/about`
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Start & Scale",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/logo.png`
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": Astro.url.href
+  }
+} : null
+---
+
+{type === 'organization' && (
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+)}
+
+{type === 'blog' && blogSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
+)}

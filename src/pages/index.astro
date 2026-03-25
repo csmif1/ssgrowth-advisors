@@ -1,232 +1,173 @@
 ---
-import '../styles/global.css'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import StructuredData from '../components/StructuredData.astro'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="preload" href="/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-		<link rel="preload" href="/fonts/SourceSans3-latin.woff2" as="font" type="font/woff2" crossorigin />
-		<title>Start & Scale | Growth Advisory for Founders & Operators</title>
-		<meta name="description" content="Revenue strategy, operations, and AI advisory for founder-led startups and SMBs scaling past the ceiling. 15+ years inside WeWork, CloudKitchens, and Apple." />
-	</head>
-	<body class="bg-background text-body">
+<BaseLayout
+	title="Start & Scale | Growth Advisory for Founders & Operators"
+	description="Revenue strategy, operations, and AI advisory for founder-led startups and SMBs scaling past the ceiling. 15+ years inside WeWork, CloudKitchens, and Apple."
+>
+	<StructuredData type="organization" />
 
-		<!-- Navigation -->
-		<nav class="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-sm">
-			<div class="max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16">
-				<a href="/" class="font-display text-white text-lg font-semibold tracking-tight cursor-pointer">Start & Scale</a>
-				<div class="hidden md:flex items-center gap-8">
-					<a href="/about" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">About</a>
-					<a href="/services" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Services</a>
-					<a href="/case-studies" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Case Studies</a>
-					<a href="/blog" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Blog</a>
-					<a href="/resources" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Resources</a>
-					<a href="/contact" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Contact</a>
-				</div>
-				<a href="/contact" class="bg-accent text-white text-btn px-5 py-2.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer">Book a Call</a>
+	<!-- Hero -->
+	<section class="bg-dark pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-28">
+		<div class="max-w-6xl mx-auto px-5 sm:px-8">
+			<h1 class="font-display text-white text-h1 lg:text-[3.75rem] lg:leading-[1.05] max-w-4xl">
+				Your company outgrew your playbook.
+			</h1>
+			<p class="text-body-lg text-body-light mt-6 max-w-2xl">
+				I help founders and operators build the revenue engine, team structure, and systems to scale past the ceiling — from inside, not from a slide deck.
+			</p>
+			<div class="mt-10 flex flex-wrap gap-4 items-center">
+				<a href="/contact" class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block">
+					Book a Call
+				</a>
+				<a href="/case-studies" class="text-accent-muted text-btn hover:text-white transition-colors duration-150 cursor-pointer inline-block py-3.5">
+					See the Work &rarr;
+				</a>
 			</div>
-		</nav>
+		</div>
+	</section>
 
-		<main>
-			<!-- Hero -->
-			<section class="bg-dark pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-28">
-				<div class="max-w-6xl mx-auto px-5 sm:px-8">
-					<h1 class="font-display text-white text-h1 lg:text-[3.75rem] lg:leading-[1.05] max-w-4xl">
-						Your company outgrew your playbook.
-					</h1>
-					<p class="text-body-lg text-body-light mt-6 max-w-2xl">
-						I help founders and operators build the revenue engine, team structure, and systems to scale past the ceiling — from inside, not from a slide deck.
-					</p>
-					<div class="mt-10 flex flex-wrap gap-4 items-center">
-						<a href="/contact" class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block">
-							Book a Call
-						</a>
-						<a href="/case-studies" class="text-accent-muted text-btn hover:text-white transition-colors duration-150 cursor-pointer inline-block py-3.5">
-							See the Work &rarr;
-						</a>
-					</div>
+	<!-- Proof Strip -->
+	<section class="bg-dark-surface py-12 sm:py-16 lg:py-20">
+		<div class="max-w-6xl mx-auto px-5 sm:px-8">
+			<div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+				<div>
+					<p class="font-display text-accent text-stat lg:text-[4.5rem] lg:leading-none">$120M</p>
+					<p class="text-small text-body-light mt-2">ARR scaled in 24 months</p>
 				</div>
-			</section>
-
-			<!-- Proof Strip -->
-			<section class="bg-dark-surface py-12 sm:py-16 lg:py-20">
-				<div class="max-w-6xl mx-auto px-5 sm:px-8">
-					<div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-						<div>
-							<p class="font-display text-accent text-stat lg:text-[4.5rem] lg:leading-none">$120M</p>
-							<p class="text-small text-body-light mt-2">ARR scaled in 24 months</p>
-						</div>
-						<div>
-							<p class="font-display text-accent text-stat lg:text-[4.5rem] lg:leading-none">9</p>
-							<p class="text-small text-body-light mt-2">Markets launched from zero</p>
-						</div>
-						<div>
-							<p class="font-display text-accent text-stat lg:text-[4.5rem] lg:leading-none">42</p>
-							<p class="text-small text-body-light mt-2">Person org built in 8 months</p>
-						</div>
-						<div>
-							<p class="font-display text-accent text-stat lg:text-[4.5rem] lg:leading-none">15+</p>
-							<p class="text-small text-body-light mt-2">Years in founder-led companies</p>
-						</div>
-					</div>
+				<div>
+					<p class="font-display text-accent text-stat lg:text-[4.5rem] lg:leading-none">9</p>
+					<p class="text-small text-body-light mt-2">Markets launched from zero</p>
 				</div>
-			</section>
-
-			<!-- Experience Strip -->
-			<section class="bg-background py-12 sm:py-16">
-				<div class="max-w-6xl mx-auto px-5 sm:px-8 text-center">
-					<p class="text-small text-body uppercase tracking-widest mb-6">Built and scaled at</p>
-					<div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-4">
-						<span class="font-display text-headline text-xl sm:text-2xl font-semibold">WeWork</span>
-						<span class="text-border hidden sm:inline">&mdash;</span>
-						<span class="font-display text-headline text-xl sm:text-2xl font-semibold">CloudKitchens</span>
-						<span class="text-border hidden sm:inline">&mdash;</span>
-						<span class="font-display text-headline text-xl sm:text-2xl font-semibold">Apple</span>
-						<span class="text-border hidden sm:inline">&mdash;</span>
-						<span class="font-display text-headline text-xl sm:text-2xl font-semibold">Allwhere</span>
-					</div>
+				<div>
+					<p class="font-display text-accent text-stat lg:text-[4.5rem] lg:leading-none">42</p>
+					<p class="text-small text-body-light mt-2">Person org built in 8 months</p>
 				</div>
-			</section>
-
-			<!-- Services Overview -->
-			<section class="bg-surface py-12 sm:py-16 lg:py-20">
-				<div class="max-w-6xl mx-auto px-5 sm:px-8">
-					<h2 class="font-display text-headline text-h2 lg:text-[3rem] lg:leading-[1.1]">What I do</h2>
-					<p class="text-body-lg text-body mt-4 max-w-2xl">Four practice areas. One operating principle: clarity drives growth.</p>
-
-					<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
-						<!-- Revenue & GTM -->
-						<div class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
-							<h3 class="font-display text-headline text-h3">Revenue & GTM</h3>
-							<p class="text-body text-body mt-3">Sales process, pipeline architecture, pricing, and channel strategy. From first rep to full revenue org.</p>
-							<a href="/services" class="text-accent text-btn mt-4 inline-block group-hover:text-accent-hover transition-colors duration-150">
-								Learn how &rarr;
-							</a>
-						</div>
-
-						<!-- Operations & Systems -->
-						<div class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
-							<h3 class="font-display text-headline text-h3">Operations & Systems</h3>
-							<p class="text-body text-body mt-3">CRM, marketing automation, process design, and team structure. I configure and deploy the systems myself.</p>
-							<a href="/services" class="text-accent text-btn mt-4 inline-block group-hover:text-accent-hover transition-colors duration-150">
-								Learn how &rarr;
-							</a>
-						</div>
-
-						<!-- Fundraising & Investor Readiness -->
-						<div class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
-							<h3 class="font-display text-headline text-h3">Fundraising & Investor Readiness</h3>
-							<p class="text-body text-body mt-3">Deck, narrative, metrics packaging, and investor outreach strategy. Shaped by experience from stealth to IPO-track.</p>
-							<a href="/services" class="text-accent text-btn mt-4 inline-block group-hover:text-accent-hover transition-colors duration-150">
-								Learn how &rarr;
-							</a>
-						</div>
-
-						<!-- AI & Automation Advisory -->
-						<div class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
-							<h3 class="font-display text-headline text-h3">AI & Automation Advisory</h3>
-							<p class="text-body text-body mt-3">Feasibility analysis, tool selection, and implementation. I build production AI systems, not just strategy decks.</p>
-							<a href="/services" class="text-accent text-btn mt-4 inline-block group-hover:text-accent-hover transition-colors duration-150">
-								Learn how &rarr;
-							</a>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Case Study Teaser -->
-			<section class="bg-background py-12 sm:py-16 lg:py-20">
-				<div class="max-w-6xl mx-auto px-5 sm:px-8">
-					<h2 class="font-display text-headline text-h2 lg:text-[3rem] lg:leading-[1.1]">Selected work</h2>
-					<p class="text-body-lg text-body mt-4 max-w-2xl">Outcomes from founder-led companies navigating inflection points.</p>
-
-					<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
-						<div class="bg-surface p-6 lg:p-8 rounded">
-							<p class="font-display text-accent text-stat">210%</p>
-							<p class="text-small text-body uppercase tracking-wider mt-1 mb-4">of plan</p>
-							<h3 class="font-display text-headline text-h4">National Nonprofit</h3>
-							<p class="text-body text-body mt-2">Fundraising infrastructure and technology modernization for a 15-year-old organization across 29 states.</p>
-							<a href="/case-studies" class="text-accent text-btn mt-4 inline-block hover:text-accent-hover transition-colors duration-150 cursor-pointer">
-								Read more &rarr;
-							</a>
-						</div>
-
-						<div class="bg-surface p-6 lg:p-8 rounded">
-							<p class="font-display text-accent text-stat">0→1</p>
-							<p class="text-small text-body uppercase tracking-wider mt-1 mb-4">GTM build</p>
-							<h3 class="font-display text-headline text-h4">Off-Grid Education Startup</h3>
-							<p class="text-body text-body mt-2">Complete go-to-market strategy, brand positioning, and marketing infrastructure for a new entrant in a niche market.</p>
-							<a href="/case-studies" class="text-accent text-btn mt-4 inline-block hover:text-accent-hover transition-colors duration-150 cursor-pointer">
-								Read more &rarr;
-							</a>
-						</div>
-
-						<div class="bg-surface p-6 lg:p-8 rounded">
-							<p class="font-display text-accent text-stat">19</p>
-							<p class="text-small text-body uppercase tracking-wider mt-1 mb-4">Edge Functions shipped</p>
-							<h3 class="font-display text-headline text-h4">Legal-Tech SaaS Platform</h3>
-							<p class="text-body text-body mt-2">Full-stack React/TypeScript/Supabase platform with AI document processing, built end-to-end from zero.</p>
-							<a href="/case-studies" class="text-accent text-btn mt-4 inline-block hover:text-accent-hover transition-colors duration-150 cursor-pointer">
-								Read more &rarr;
-							</a>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- CTA Block -->
-			<section class="bg-dark py-16 sm:py-20 lg:py-24">
-				<div class="max-w-6xl mx-auto px-5 sm:px-8 text-center">
-					<h2 class="font-display text-white text-h2 lg:text-[3rem] lg:leading-[1.1]">Let's talk about what's slowing you down.</h2>
-					<p class="text-body-lg text-body-light mt-4 max-w-xl mx-auto">30-minute call. No pitch, no pressure. Just a conversation about where you are and what might help.</p>
-					<div class="mt-10 flex flex-wrap justify-center gap-4 items-center">
-						<a href="/contact" class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block">
-							Book a Call
-						</a>
-						<a href="/contact" class="text-body-light text-btn hover:text-white transition-colors duration-150 cursor-pointer inline-block py-3.5">
-							Or send a message &rarr;
-						</a>
-					</div>
-				</div>
-			</section>
-		</main>
-
-		<!-- Footer -->
-		<footer class="bg-dark py-12 sm:py-16 border-t border-dark-surface">
-			<div class="max-w-6xl mx-auto px-5 sm:px-8">
-				<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-					<div>
-						<a href="/" class="font-display text-white text-lg font-semibold tracking-tight">Start & Scale</a>
-						<p class="text-small text-body-light mt-3">Growth advisory for founders and operators.</p>
-						<p class="text-small text-body-light mt-1">Marblehead, MA</p>
-					</div>
-					<div>
-						<p class="text-small text-body-light uppercase tracking-widest mb-4">Navigate</p>
-						<div class="flex flex-col gap-2">
-							<a href="/about" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">About</a>
-							<a href="/services" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Services</a>
-							<a href="/case-studies" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Case Studies</a>
-							<a href="/blog" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Blog</a>
-						</div>
-					</div>
-					<div>
-						<p class="text-small text-body-light uppercase tracking-widest mb-4">Connect</p>
-						<div class="flex flex-col gap-2">
-							<a href="/contact" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Contact</a>
-							<a href="/resources" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Resources</a>
-						</div>
-					</div>
-				</div>
-				<div class="mt-12 pt-8 border-t border-dark-surface">
-					<p class="text-small text-body-light">&copy; 2026 Start & Scale. All rights reserved.</p>
+				<div>
+					<p class="font-display text-accent text-stat lg:text-[4.5rem] lg:leading-none">15+</p>
+					<p class="text-small text-body-light mt-2">Years in founder-led companies</p>
 				</div>
 			</div>
-		</footer>
+		</div>
+	</section>
 
-	</body>
-</html>
+	<!-- Experience Strip -->
+	<section class="bg-background py-12 sm:py-16">
+		<div class="max-w-6xl mx-auto px-5 sm:px-8 text-center">
+			<p class="text-small text-body uppercase tracking-widest mb-6">Built and scaled at</p>
+			<div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-4">
+				<span class="font-display text-headline text-xl sm:text-2xl font-semibold">WeWork</span>
+				<span class="text-border hidden sm:inline" aria-hidden="true">&mdash;</span>
+				<span class="font-display text-headline text-xl sm:text-2xl font-semibold">CloudKitchens</span>
+				<span class="text-border hidden sm:inline" aria-hidden="true">&mdash;</span>
+				<span class="font-display text-headline text-xl sm:text-2xl font-semibold">Apple</span>
+				<span class="text-border hidden sm:inline" aria-hidden="true">&mdash;</span>
+				<span class="font-display text-headline text-xl sm:text-2xl font-semibold">Allwhere</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Services Overview -->
+	<section class="bg-surface py-12 sm:py-16 lg:py-20">
+		<div class="max-w-6xl mx-auto px-5 sm:px-8">
+			<h2 class="font-display text-headline text-h2 lg:text-[3rem] lg:leading-[1.1]">What I do</h2>
+			<p class="text-body-lg text-body mt-4 max-w-2xl">Four practice areas. One operating principle: clarity drives growth.</p>
+
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+				<!-- Revenue & GTM -->
+				<article class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
+					<h3 class="font-display text-headline text-h3">Revenue & GTM</h3>
+					<p class="text-body text-body mt-3">Sales process, pipeline architecture, pricing, and channel strategy. From first rep to full revenue org.</p>
+					<a href="/services" class="text-accent text-btn mt-4 inline-block group-hover:text-accent-hover transition-colors duration-150">
+						Learn how &rarr;
+					</a>
+				</article>
+
+				<!-- Operations & Systems -->
+				<article class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
+					<h3 class="font-display text-headline text-h3">Operations & Systems</h3>
+					<p class="text-body text-body mt-3">CRM, marketing automation, process design, and team structure. I configure and deploy the systems myself.</p>
+					<a href="/services" class="text-accent text-btn mt-4 inline-block group-hover:text-accent-hover transition-colors duration-150">
+						Learn how &rarr;
+					</a>
+				</article>
+
+				<!-- Fundraising & Investor Readiness -->
+				<article class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
+					<h3 class="font-display text-headline text-h3">Fundraising & Investor Readiness</h3>
+					<p class="text-body text-body mt-3">Deck, narrative, metrics packaging, and investor outreach strategy. Shaped by experience from stealth to IPO-track.</p>
+					<a href="/services" class="text-accent text-btn mt-4 inline-block group-hover:text-accent-hover transition-colors duration-150">
+						Learn how &rarr;
+					</a>
+				</article>
+
+				<!-- AI & Automation Advisory -->
+				<article class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
+					<h3 class="font-display text-headline text-h3">AI & Automation Advisory</h3>
+					<p class="text-body text-body mt-3">Feasibility analysis, tool selection, and implementation. I build production AI systems, not just strategy decks.</p>
+					<a href="/services" class="text-accent text-btn mt-4 inline-block group-hover:text-accent-hover transition-colors duration-150">
+						Learn how &rarr;
+					</a>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<!-- Case Study Teaser -->
+	<section class="bg-background py-12 sm:py-16 lg:py-20">
+		<div class="max-w-6xl mx-auto px-5 sm:px-8">
+			<h2 class="font-display text-headline text-h2 lg:text-[3rem] lg:leading-[1.1]">Selected work</h2>
+			<p class="text-body-lg text-body mt-4 max-w-2xl">Outcomes from founder-led companies navigating inflection points.</p>
+
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
+				<article class="bg-surface p-6 lg:p-8 rounded">
+					<p class="font-display text-accent text-stat">210%</p>
+					<p class="text-small text-body uppercase tracking-wider mt-1 mb-4">of plan</p>
+					<h3 class="font-display text-headline text-h4">National Nonprofit</h3>
+					<p class="text-body text-body mt-2">Fundraising infrastructure and technology modernization for a 15-year-old organization across 29 states.</p>
+					<a href="/case-studies" class="text-accent text-btn mt-4 inline-block hover:text-accent-hover transition-colors duration-150 cursor-pointer">
+						Read more &rarr;
+					</a>
+				</article>
+
+				<article class="bg-surface p-6 lg:p-8 rounded">
+					<p class="font-display text-accent text-stat">0→1</p>
+					<p class="text-small text-body uppercase tracking-wider mt-1 mb-4">GTM build</p>
+					<h3 class="font-display text-headline text-h4">Off-Grid Education Startup</h3>
+					<p class="text-body text-body mt-2">Complete go-to-market strategy, brand positioning, and marketing infrastructure for a new entrant in a niche market.</p>
+					<a href="/case-studies" class="text-accent text-btn mt-4 inline-block hover:text-accent-hover transition-colors duration-150 cursor-pointer">
+						Read more &rarr;
+					</a>
+				</article>
+
+				<article class="bg-surface p-6 lg:p-8 rounded">
+					<p class="font-display text-accent text-stat">19</p>
+					<p class="text-small text-body uppercase tracking-wider mt-1 mb-4">Edge Functions shipped</p>
+					<h3 class="font-display text-headline text-h4">Legal-Tech SaaS Platform</h3>
+					<p class="text-body text-body mt-2">Full-stack React/TypeScript/Supabase platform with AI document processing, built end-to-end from zero.</p>
+					<a href="/case-studies" class="text-accent text-btn mt-4 inline-block hover:text-accent-hover transition-colors duration-150 cursor-pointer">
+						Read more &rarr;
+					</a>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Block -->
+	<section class="bg-dark py-16 sm:py-20 lg:py-24">
+		<div class="max-w-6xl mx-auto px-5 sm:px-8 text-center">
+			<h2 class="font-display text-white text-h2 lg:text-[3rem] lg:leading-[1.1]">Let's talk about what's slowing you down.</h2>
+			<p class="text-body-lg text-body-light mt-4 max-w-xl mx-auto">30-minute call. No pitch, no pressure. Just a conversation about where you are and what might help.</p>
+			<div class="mt-10 flex flex-wrap justify-center gap-4 items-center">
+				<a href="/contact" class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block">
+					Book a Call
+				</a>
+				<a href="/contact" class="text-body-light text-btn hover:text-white transition-colors duration-150 cursor-pointer inline-block py-3.5">
+					Or send a message &rarr;
+				</a>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

@@ -1,5 +1,6 @@
 ---
-import '../../styles/global.css'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import StructuredData from '../../components/StructuredData.astro'
 import { getCollection, render } from 'astro:content'
 
 export async function getStaticPaths() {
@@ -24,35 +25,19 @@ function formatDate(date: Date): string {
 }
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="preload" href="/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
-		<link rel="preload" href="/fonts/SourceSans3-latin.woff2" as="font" type="font/woff2" crossorigin />
-		<title>{post.data.title} | Start & Scale Blog</title>
-		<meta name="description" content={post.data.description} />
-	</head>
-	<body class="bg-background text-body">
-
-		<!-- Navigation -->
-		<nav class="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-sm">
-			<div class="max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16">
-				<a href="/" class="font-display text-white text-lg font-semibold tracking-tight cursor-pointer">Start & Scale</a>
-				<div class="hidden md:flex items-center gap-8">
-					<a href="/about" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">About</a>
-					<a href="/services" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Services</a>
-					<a href="/case-studies" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Case Studies</a>
-					<a href="/blog" class="text-nav text-accent-muted transition-colors duration-150 cursor-pointer">Blog</a>
-					<a href="/resources" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Resources</a>
-					<a href="/contact" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Contact</a>
-				</div>
-				<a href="/contact" class="bg-accent text-white text-btn px-5 py-2.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer">Book a Call</a>
-			</div>
-		</nav>
+<BaseLayout
+	title={`${post.data.title} | Start & Scale Blog`}
+	description={post.data.description}
+	canonical={`/blog/${post.id}`}
+	ogType="article"
+>
+	<StructuredData
+		type="blog"
+		blogTitle={post.data.title}
+		blogDescription={post.data.description}
+		blogPublished={post.data.date.toISOString()}
+		blogAuthor={post.data.author}
+	/>
 
 		<main>
 			<!-- Post Header -->
@@ -92,42 +77,7 @@ function formatDate(date: Date): string {
 					</div>
 				</div>
 			</section>
-		</main>
-
-		<!-- Footer -->
-		<footer class="bg-dark py-12 sm:py-16 border-t border-dark-surface">
-			<div class="max-w-6xl mx-auto px-5 sm:px-8">
-				<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-					<div>
-						<a href="/" class="font-display text-white text-lg font-semibold tracking-tight">Start & Scale</a>
-						<p class="text-small text-body-light mt-3">Growth advisory for founders and operators.</p>
-						<p class="text-small text-body-light mt-1">Marblehead, MA</p>
-					</div>
-					<div>
-						<p class="text-small text-body-light uppercase tracking-widest mb-4">Navigate</p>
-						<div class="flex flex-col gap-2">
-							<a href="/about" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">About</a>
-							<a href="/services" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Services</a>
-							<a href="/case-studies" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Case Studies</a>
-							<a href="/blog" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Blog</a>
-						</div>
-					</div>
-					<div>
-						<p class="text-small text-body-light uppercase tracking-widest mb-4">Connect</p>
-						<div class="flex flex-col gap-2">
-							<a href="/contact" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Contact</a>
-							<a href="/resources" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Resources</a>
-						</div>
-					</div>
-				</div>
-				<div class="mt-12 pt-8 border-t border-dark-surface">
-					<p class="text-small text-body-light">&copy; 2026 Start & Scale. All rights reserved.</p>
-				</div>
-			</div>
-		</footer>
-
-	</body>
-</html>
+</BaseLayout>
 
 <style is:global>
 	.prose h2 {
