@@ -1,0 +1,387 @@
+---
+import '../styles/global.css'
+
+const categories = [
+	{
+		name: 'GTM Maturity',
+		num: 1,
+		questions: [
+			'We have a documented sales process that a new rep could follow in their first week.',
+			'We know our average sales cycle length and it\'s been consistent for at least two quarters.',
+			'We can identify which marketing channel produces our most profitable customers.',
+			'Our pricing was set based on data (win rates, competitive analysis, willingness-to-pay research) rather than gut feel.',
+			'A lead that comes in today will be contacted by a human within 4 business hours.',
+			'We track pipeline by stage and review it at least weekly.',
+		],
+	},
+	{
+		name: 'Operations Infrastructure',
+		num: 2,
+		questions: [
+			'Our CRM is the single source of truth for customer data, and the team uses it daily.',
+			'When a deal closes, the handoff to onboarding or delivery happens through a defined process.',
+			'We can pull a report on revenue, pipeline, or customer health in under 10 minutes.',
+			'Our marketing tools (email, analytics, ads) are connected and share data automatically.',
+			'We have documented SOPs for at least our five most common internal processes.',
+		],
+	},
+	{
+		name: 'Team Structure',
+		num: 3,
+		questions: [
+			'Every revenue-generating role has a written job description that matches what the person actually does.',
+			'Managers have fewer than 8 direct reports.',
+			'We have a clear owner for each stage of the customer journey (acquisition, onboarding, retention, expansion).',
+			'When someone leaves, their replacement can get to 80% productivity within 30 days using existing documentation.',
+			'Compensation plans for sales roles are tied to metrics the rep can directly influence.',
+			'We have at least one person whose primary job is operations or process.',
+		],
+	},
+	{
+		name: 'Data & Analytics',
+		num: 4,
+		questions: [
+			'We track CAC and LTV and the numbers are based on real data, not estimates.',
+			'We have a dashboard that the leadership team reviews weekly with no manual data entry required.',
+			'We can segment our customers by revenue, industry, or acquisition channel and see meaningful differences.',
+			'When we run a marketing campaign, we can trace it from spend to closed revenue.',
+			'Our data lives in systems (CRM, analytics, billing) rather than spreadsheets maintained by one person.',
+		],
+	},
+	{
+		name: 'AI Readiness',
+		num: 5,
+		questions: [
+			'We have identified at least three workflows where AI could reduce manual effort by 50% or more.',
+			'Someone on the team has evaluated AI tools for our specific use cases (not just ChatGPT for email).',
+			'Our data is clean and structured enough that an AI tool could ingest it without major prep work.',
+			'We have budget allocated for AI/automation tools in the next 6 months.',
+			'We understand the difference between "AI that generates content" and "AI that automates a workflow" and know which we need.',
+		],
+	},
+]
+
+let questionNumber = 0
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="preload" href="/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/SourceSans3-latin.woff2" as="font" type="font/woff2" crossorigin />
+		<title>Growth Readiness Assessment | Start & Scale Resources</title>
+		<meta name="description" content="27 questions to evaluate your company's readiness to scale. Free self-assessment covering GTM, operations, team structure, data, and AI." />
+	</head>
+	<body class="bg-background text-body">
+
+		<!-- Navigation -->
+		<nav class="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-sm">
+			<div class="max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16">
+				<a href="/" class="font-display text-white text-lg font-semibold tracking-tight cursor-pointer">Start & Scale</a>
+				<div class="hidden md:flex items-center gap-8">
+					<a href="/about" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">About</a>
+					<a href="/services" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Services</a>
+					<a href="/case-studies" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Case Studies</a>
+					<a href="/blog" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Blog</a>
+					<a href="/resources" class="text-nav text-accent-muted transition-colors duration-150 cursor-pointer">Resources</a>
+					<a href="/contact" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Contact</a>
+				</div>
+				<a href="/contact" class="bg-accent text-white text-btn px-5 py-2.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer">Book a Call</a>
+			</div>
+		</nav>
+
+		<main>
+			<!-- Hero -->
+			<section class="bg-dark pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-28">
+				<div class="max-w-6xl mx-auto px-5 sm:px-8">
+					<h1 class="font-display text-white text-h1 lg:text-[3.75rem] lg:leading-[1.05] max-w-4xl">
+						Growth Readiness Assessment
+					</h1>
+					<p class="text-body-lg text-body-light mt-6 max-w-2xl">
+						27 questions across five categories. Answer honestly and you'll know exactly where your company is ready to scale and where it isn't.
+					</p>
+				</div>
+			</section>
+
+			<!-- Instructions -->
+			<section class="bg-surface py-8 sm:py-10">
+				<div class="max-w-6xl mx-auto px-5 sm:px-8">
+					<p class="text-body text-body max-w-3xl">
+						Rate each statement from <strong class="text-headline">1</strong> (not true at all) to <strong class="text-headline">5</strong> (completely true). No partial credit for intentions. Score based on what's in place today.
+					</p>
+				</div>
+			</section>
+
+			<!-- Assessment Categories -->
+			{categories.map((cat, catIdx) => {
+				const isLast = catIdx === categories.length - 1
+				return (
+					<>
+						<section class="bg-background py-12 sm:py-16 lg:py-20" data-category={cat.name}>
+							<div class="max-w-6xl mx-auto px-5 sm:px-8">
+								<div class="max-w-3xl">
+									<div class="flex items-baseline justify-between">
+										<div>
+											<p class="text-small text-accent uppercase tracking-widest mb-2">Category {cat.num} of 5</p>
+											<h2 class="font-display text-headline text-h2 lg:text-[2.25rem] lg:leading-[1.1]">{cat.name}</h2>
+										</div>
+										<p class="text-small text-body">Score: <span class="font-display text-accent font-semibold text-lg" data-cat-score={cat.name}>0</span><span class="text-body"> / {cat.questions.length * 5}</span></p>
+									</div>
+									<div class="mt-8 space-y-6">
+										{cat.questions.map((q, qIdx) => {
+											questionNumber++
+											const qName = `q${questionNumber}`
+											const isLastQ = qIdx === cat.questions.length - 1
+											return (
+												<div class={isLastQ ? '' : 'border-b border-border pb-6'}>
+													<p class="text-body text-headline font-semibold">{questionNumber}. {q}</p>
+													<fieldset class="flex gap-2 mt-3" data-question={qName} data-category={cat.name}>
+														{[1, 2, 3, 4, 5].map((val) => (
+															<label class="rating-btn flex items-center justify-center w-10 h-10 rounded border border-border text-small text-body cursor-pointer hover:border-accent hover:text-accent transition-colors duration-150">
+																<input type="radio" name={qName} value={val} class="sr-only" />
+																<span>{val}</span>
+															</label>
+														))}
+													</fieldset>
+												</div>
+											)
+										})}
+									</div>
+								</div>
+							</div>
+						</section>
+						{!isLast && <div class="max-w-6xl mx-auto px-5 sm:px-8"><hr class="border-border" /></div>}
+					</>
+				)
+			})}
+
+			<!-- Progress Bar -->
+			<section class="bg-surface py-6">
+				<div class="max-w-6xl mx-auto px-5 sm:px-8">
+					<div class="flex items-center justify-between mb-2">
+						<p class="text-small text-body"><span id="answered-count">0</span> of 27 answered</p>
+						<p class="text-small text-body">Total: <span id="total-score" class="font-display text-accent font-semibold text-lg">0</span> / 135</p>
+					</div>
+					<div class="w-full bg-border rounded-full h-2">
+						<div id="progress-bar" class="bg-accent h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Results (hidden until all answered) -->
+			<section id="results-section" class="bg-dark-surface py-12 sm:py-16 lg:py-20 hidden">
+				<div class="max-w-6xl mx-auto px-5 sm:px-8">
+					<h2 class="font-display text-white text-h2 lg:text-[2.25rem] lg:leading-[1.1]">Your results</h2>
+
+					<!-- Category Breakdown -->
+					<div class="grid grid-cols-1 sm:grid-cols-5 gap-4 mt-8">
+						{categories.map((cat) => (
+							<div class="bg-dark p-4 rounded text-center">
+								<p class="font-display text-accent text-h3" data-cat-final={cat.name}>0</p>
+								<p class="text-small text-body-light mt-1">{cat.name}</p>
+							</div>
+						))}
+					</div>
+
+					<!-- Overall Result -->
+					<div id="result-card" class="bg-dark p-8 rounded mt-8 max-w-2xl">
+						<p class="font-display text-accent text-stat" id="result-score">0</p>
+						<p class="text-small text-accent-muted uppercase tracking-wider mt-1 mb-4" id="result-tier"></p>
+						<p class="text-body text-body-light" id="result-description"></p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Static Scoring Guide (visible before completion) -->
+			<section id="scoring-guide" class="bg-dark-surface py-12 sm:py-16 lg:py-20">
+				<div class="max-w-6xl mx-auto px-5 sm:px-8">
+					<h2 class="font-display text-white text-h2 lg:text-[2.25rem] lg:leading-[1.1]">Where you'll stand</h2>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+						<div class="bg-dark p-6 rounded">
+							<p class="font-display text-accent text-stat">110-135</p>
+							<p class="text-small text-accent-muted uppercase tracking-wider mt-1 mb-4">Ready to scale</p>
+							<p class="text-body text-body-light">Your foundation is solid. The next step is identifying the highest-leverage growth initiative and executing. Advisory support can accelerate what's already working.</p>
+						</div>
+						<div class="bg-dark p-6 rounded">
+							<p class="font-display text-accent text-stat">80-109</p>
+							<p class="text-small text-accent-muted uppercase tracking-wider mt-1 mb-4">Close, with gaps</p>
+							<p class="text-body text-body-light">You have the basics, but specific areas need attention before you scale. Scaling on top of these gaps will magnify them.</p>
+						</div>
+						<div class="bg-dark p-6 rounded">
+							<p class="font-display text-accent text-stat">50-79</p>
+							<p class="text-small text-accent-muted uppercase tracking-wider mt-1 mb-4">Foundation first</p>
+							<p class="text-body text-body-light">Significant infrastructure work needed before aggressive growth makes sense. The good news: these are fixable problems with clear solutions.</p>
+						</div>
+						<div class="bg-dark p-6 rounded">
+							<p class="font-display text-accent text-stat">27-49</p>
+							<p class="text-small text-accent-muted uppercase tracking-wider mt-1 mb-4">Starting from scratch</p>
+							<p class="text-body text-body-light">That's fine. Every company in this assessment started here. Focus on the lowest-scoring category first and build up.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Email Capture -->
+			<section class="bg-surface py-12 sm:py-16 lg:py-20">
+				<div class="max-w-6xl mx-auto px-5 sm:px-8">
+					<div class="max-w-xl mx-auto text-center">
+						<h2 class="font-display text-headline text-h2 lg:text-[2.25rem] lg:leading-[1.1]">Want to dig deeper?</h2>
+						<p class="text-body text-body mt-4">Drop your email and I'll send you a detailed breakdown of what each score range means and the specific next steps for your lowest-scoring category.</p>
+						<form class="mt-8 space-y-4" action="#" method="POST">
+							<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+								<input type="text" name="name" required class="w-full bg-background border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150" placeholder="Name" />
+								<input type="text" name="company" class="w-full bg-background border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150" placeholder="Company" />
+							</div>
+							<input type="email" name="email" required class="w-full bg-background border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150" placeholder="you@company.com" />
+							<button type="submit" class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block">
+								Send My Results
+							</button>
+						</form>
+					</div>
+				</div>
+			</section>
+
+			<!-- CTA Block -->
+			<section class="bg-dark py-16 sm:py-20 lg:py-24">
+				<div class="max-w-6xl mx-auto px-5 sm:px-8 text-center">
+					<h2 class="font-display text-white text-h2 lg:text-[3rem] lg:leading-[1.1]">Want help closing the gaps?</h2>
+					<p class="text-body-lg text-body-light mt-4 max-w-xl mx-auto">30 minutes. We'll walk through your results and I'll tell you where I'd focus first.</p>
+					<div class="mt-10 flex flex-wrap justify-center gap-4 items-center">
+						<a href="/contact" class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block">
+							Book a Call
+						</a>
+						<a href="/contact" class="text-body-light text-btn hover:text-white transition-colors duration-150 cursor-pointer inline-block py-3.5">
+							Or send a message &rarr;
+						</a>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer -->
+		<footer class="bg-dark py-12 sm:py-16 border-t border-dark-surface">
+			<div class="max-w-6xl mx-auto px-5 sm:px-8">
+				<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+					<div>
+						<a href="/" class="font-display text-white text-lg font-semibold tracking-tight">Start & Scale</a>
+						<p class="text-small text-body-light mt-3">Growth advisory for founders and operators.</p>
+						<p class="text-small text-body-light mt-1">Marblehead, MA</p>
+					</div>
+					<div>
+						<p class="text-small text-body-light uppercase tracking-widest mb-4">Navigate</p>
+						<div class="flex flex-col gap-2">
+							<a href="/about" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">About</a>
+							<a href="/services" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Services</a>
+							<a href="/case-studies" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Case Studies</a>
+							<a href="/blog" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Blog</a>
+						</div>
+					</div>
+					<div>
+						<p class="text-small text-body-light uppercase tracking-widest mb-4">Connect</p>
+						<div class="flex flex-col gap-2">
+							<a href="/contact" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Contact</a>
+							<a href="/resources" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Resources</a>
+						</div>
+					</div>
+				</div>
+				<div class="mt-12 pt-8 border-t border-dark-surface">
+					<p class="text-small text-body-light">&copy; 2026 Start & Scale. All rights reserved.</p>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			const fieldsets = document.querySelectorAll('fieldset[data-question]')
+			const totalScoreEl = document.getElementById('total-score')
+			const answeredCountEl = document.getElementById('answered-count')
+			const progressBar = document.getElementById('progress-bar')
+			const resultsSection = document.getElementById('results-section')
+			const scoringGuide = document.getElementById('scoring-guide')
+			const resultScore = document.getElementById('result-score')
+			const resultTier = document.getElementById('result-tier')
+			const resultDescription = document.getElementById('result-description')
+
+			const tiers = [
+				{ min: 110, max: 135, name: 'Ready to scale', desc: 'Your foundation is solid. The next step is identifying the highest-leverage growth initiative and executing. Advisory support can accelerate what\'s already working.' },
+				{ min: 80, max: 109, name: 'Close, with gaps', desc: 'You have the basics, but specific areas need attention before you scale. Scaling on top of these gaps will magnify them.' },
+				{ min: 50, max: 79, name: 'Foundation first', desc: 'Significant infrastructure work needed before aggressive growth makes sense. The good news: these are fixable problems with clear solutions.' },
+				{ min: 27, max: 49, name: 'Starting from scratch', desc: 'That\'s fine. Every company in this assessment started here. Focus on the lowest-scoring category first and build up.' },
+			]
+
+			function updateScores() {
+				const catScores = {}
+				let total = 0
+				let answered = 0
+
+				fieldsets.forEach((fs) => {
+					const cat = fs.dataset.category
+					const checked = fs.querySelector('input:checked')
+					if (!catScores[cat]) catScores[cat] = 0
+					if (checked) {
+						const val = parseInt(checked.value)
+						catScores[cat] += val
+						total += val
+						answered++
+					}
+				})
+
+				// Update category scores in headers
+				document.querySelectorAll('[data-cat-score]').forEach((el) => {
+					const cat = el.dataset.catScore
+					el.textContent = catScores[cat] || 0
+				})
+
+				// Update category scores in results
+				document.querySelectorAll('[data-cat-final]').forEach((el) => {
+					const cat = el.dataset.catFinal
+					el.textContent = catScores[cat] || 0
+				})
+
+				totalScoreEl.textContent = total
+				answeredCountEl.textContent = answered
+				progressBar.style.width = `${(answered / 27) * 100}%`
+
+				// Show results when all answered
+				if (answered === 27) {
+					resultsSection.classList.remove('hidden')
+					scoringGuide.classList.add('hidden')
+					resultScore.textContent = total
+
+					const tier = tiers.find(t => total >= t.min && total <= t.max) || tiers[tiers.length - 1]
+					resultTier.textContent = tier.name
+					resultDescription.textContent = tier.desc
+
+					resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+				} else {
+					resultsSection.classList.add('hidden')
+					scoringGuide.classList.remove('hidden')
+				}
+			}
+
+			// Set up click handlers on rating buttons
+			fieldsets.forEach((fs) => {
+				const labels = fs.querySelectorAll('label')
+				labels.forEach((label) => {
+					label.addEventListener('click', () => {
+						// Clear active state from siblings
+						labels.forEach((l) => {
+							l.classList.remove('bg-accent', 'border-accent', 'text-white')
+							l.classList.add('border-border', 'text-body')
+						})
+						// Set active state on clicked
+						label.classList.add('bg-accent', 'border-accent', 'text-white')
+						label.classList.remove('border-border', 'text-body')
+
+						// Small delay to let radio check propagate
+						requestAnimationFrame(updateScores)
+					})
+				})
+			})
+		</script>
+
+	</body>
+</html>
