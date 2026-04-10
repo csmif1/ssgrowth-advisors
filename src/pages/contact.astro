@@ -16,7 +16,7 @@ import StructuredData from '../components/StructuredData.astro'
 						Let's talk.
 					</h1>
 					<p class="text-body-lg text-body-light mt-6 max-w-2xl">
-						Pick a time on the calendar, or send a message. Either way, we'll get back to you within 24 hours.
+						Pick a time on the calendar, or send us a message. Either way, we'll get back to you within 24 hours.
 					</p>
 				</div>
 			</section>
@@ -24,7 +24,7 @@ import StructuredData from '../components/StructuredData.astro'
 			<!-- Two-Column: Calendly + Form -->
 			<section class="bg-background py-12 sm:py-16 lg:py-20">
 				<div class="max-w-6xl mx-auto px-5 sm:px-8">
-					<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+					<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16">
 
 						<!-- Schedule a Call -->
 						<div>
@@ -32,17 +32,17 @@ import StructuredData from '../components/StructuredData.astro'
 							<p class="text-body text-body mt-4">30 minutes. No pitch, no prep needed. Just a conversation about where you are.</p>
 
 							<!-- Calendly Inline Embed -->
-							<div class="mt-8 rounded overflow-hidden" style="min-height: 700px;">
-								<div class="calendly-inline-widget" data-url="https://calendly.com/chris-ssgrowthadvisors/?hide_gdpr_banner=1" style="min-width:320px;width:100%;height:700px;"></div>
+							<div class="mt-6 sm:mt-8 rounded overflow-hidden calendly-container">
+								<div class="calendly-inline-widget" data-url="https://calendly.com/chris-ssgrowthadvisors/?hide_gdpr_banner=1" style="min-width:280px;width:100%;height:100%;"></div>
 							</div>
 						</div>
 
-						<!-- Send a Message -->
+						<!-- Send Us a Message -->
 						<div>
-							<h2 class="font-display text-headline text-h2 lg:text-[2.25rem] lg:leading-[1.1]">Send a message</h2>
+							<h2 class="font-display text-headline text-h2 lg:text-[2.25rem] lg:leading-[1.1]">Send us a message</h2>
 							<p class="text-body text-body mt-4">We respond to every message within one business day.</p>
 
-							<form class="mt-8 space-y-6" action="#" method="POST">
+							<form class="mt-6 sm:mt-8 space-y-5 sm:space-y-6" action="#" method="POST">
 								<div>
 									<label for="name" class="text-small text-headline font-semibold block mb-2">Name <span class="text-accent">*</span></label>
 									<input
@@ -100,7 +100,7 @@ import StructuredData from '../components/StructuredData.astro'
 					</div>
 
 					<!-- Location -->
-					<div class="mt-16 pt-8 border-t border-border">
+					<div class="mt-10 sm:mt-16 pt-8 border-t border-border">
 						<p class="text-small text-body">Marblehead, MA &middot; Working with founders and operators everywhere.</p>
 					</div>
 				</div>
@@ -109,4 +109,20 @@ import StructuredData from '../components/StructuredData.astro'
 	<!-- Calendly embed script -->
 	<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
 	<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+	<style>
+		.calendly-container {
+			height: 380px;
+		}
+		@media (min-width: 640px) {
+			.calendly-container {
+				height: 500px;
+			}
+		}
+		@media (min-width: 1024px) {
+			.calendly-container {
+				height: 700px;
+			}
+		}
+	</style>
 </BaseLayout>
