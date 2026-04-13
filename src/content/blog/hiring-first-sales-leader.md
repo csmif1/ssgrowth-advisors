@@ -23,7 +23,7 @@ At WeWork, I watched the opposite. Markets would open, a senior sales leader wou
 
 Your first sales hire should be a player-coach. Someone who will carry a quota and close deals themselves while simultaneously building the process for the next two or three reps.
 
-They need to be comfortable selling without a playbook — because they're the one writing it. Rigorous enough to document what works, and humble enough to carry a bag while they figure it out.
+They need to be comfortable selling without a playbook, because they're writing it. They need to be rigorous enough to document what works. And they need to be humble enough to carry a bag while they figure it out.
 
 This person is rarely a VP. They're usually a strong senior AE or a first-time sales manager with something to prove. They cost less than a VP, they move faster, and they build the foundation that a VP can eventually manage.
 

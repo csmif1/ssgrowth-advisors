@@ -13,34 +13,38 @@ That's not a shot at beginners. It's an observation about how the tools actually
 
 Where I get the most out of AI is at the very front of a project. Brainstorming. Pressure-testing an idea. Mapping the space before I commit to a direction. Drafting a plan and then arguing with myself about it through the model.
 
-But the quality of that conversation depends on what I bring to it. If I can frame the problem, ask sharp questions, and name what I'm actually trying to accomplish, the output is excellent. If I can't, I get something that sounds smart and means nothing.
+But the quality of that conversation is entirely dependent on what I bring to it. If I can frame the problem, ask sharp questions, and name what I'm actually trying to accomplish, the output is excellent. If I can't, I get something that sounds smart and means nothing.
 
-Prompt engineering is a real skill. But it matters less than the one before it — knowing what you're actually trying to do and being able to say it clearly.
+Prompt engineering is a real skill, but it's downstream of a more basic one: knowing what you want and being able to say it out loud.
 
 ## You have to manage it like a person
 
 The other thing I keep coming back to is that working with AI looks a lot more like managing people than I expected.
 
-You're setting context, giving direction, catching mistakes before they snowball, pushing back on stuff that sounds right but isn't. And then you're editing the output — which is honestly where most of the real value comes from.
+You set context. You give feedback. You catch mistakes early before they compound. You push back on things that sound right but aren't. And you edit the work.
 
-That's also where the slop gets in. The model hands you something that reads well and is quietly wrong. If you don't know the subject well enough to catch it, you ship it. Then you wonder why everything you produce sounds the same.
+That last part is where most of the slop gets in. The model produces something confident, polished, and subtly wrong. If you don't have the domain expertise to catch it, you ship it. Then you wonder why your output feels generic.
 
-Editing AI output is no different than editing a junior hire's work. You have to know what good looks like, or you won't spot what isn't.
+Editing AI work well requires the same thing that editing a junior employee's work requires: you have to know what good actually looks like.
 
 ## Why this favors experts
 
-The people I see getting the most out of AI are the ones who were already asking good questions before these tools existed. They're curious. They have taste — they can tell when something reads well but doesn't hold up. And they've put in enough reps in their field to know the difference between a good answer and a plausible one.
+The people I see getting the most out of AI are curious, creative, and unafraid to ask bad questions until they arrive at good ones. They have taste — they can feel when something is almost right but not quite, and they can articulate what's wrong. And they're good communicators with themselves, which is the part nobody talks about. They know what they're trying to do before they open the chat window.
 
-If you know your stuff and you're willing to manage the tool like you'd manage a new hire, it'll change what you can do. If you're hoping the model covers for what you don't know yet, you'll produce a lot of work that looks finished and isn't.
+If you're an expert in your field and you're willing to manage the thing like a new hire, AI will meaningfully change your output. If you're a beginner hoping the model will cover for what you don't know, you'll get something that looks like work and isn't.
 
 ## A personal example
 
-I built a SaaS platform end-to-end using Claude Code. Not as a novelty — a real, production system with AI document processing and dozens of backend functions running through it. I'm not a software engineer by training. But I understood the product cold, I've spent enough time around code to know what clean looks like, and I could tell when the model was heading somewhere dumb.
+I built a SaaS platform end-to-end using Claude Code. Not as a novelty — a real, production system with AI document processing and dozens of backend functions running through it. I'm not a career software engineer. But I know what the product needed to do, I've reviewed enough code over the years to know what good looks like, and I can tell when the model is about to do something stupid.
 
-Without knowing the subject matter and being willing to edit everything, I would have shipped a mess. With that foundation, I shipped something I'm proud of — faster than I could have done it any other way.
+Without the domain understanding and the editorial eye, I would have shipped a mess. With them, I shipped something I'm proud of — faster than I could have any other way.
 
-That's the deal. AI doesn't replace knowing your stuff. It lets you move faster when you do. And when you don't — it just helps you produce bad work at scale.
+That's the trade. AI doesn't replace the expert. It lets the expert move at a speed that wasn't previously possible. And it punishes people who try to use it as a substitute for learning the craft.
 
 ## TL;DR — The Bottom Line
 
-The tool is only as good as the person using it. Know your craft, coach the model like you'd coach a new hire, and edit everything it gives you. That's the whole game right now.
+If you've been following AI at all, you've heard the line: "AI is only as good as the data it's trained on." That's true, but it's only half the picture. The data is one piece of context. The other piece — and the one nobody's talking about enough — is you. Your proficiency. Your expertise. How clearly you're thinking about what you're trying to accomplish, how well you're managing the tool on the front end, and how sharp your eye is when you're editing the output on the back end.
+
+The data determines what the model *can* do. The person determines what it *actually* does. That's the whole point of this article — and honestly, that's where the game is right now.
+
+<a href="/services" style="display:inline-block;margin-top:1.5rem;padding:0.75rem 1.75rem;background-color:#0D9488;color:white;border-radius:0.375rem;font-weight:600;font-size:0.875rem;text-decoration:none;letter-spacing:0.02em;">Learn More About AI & Automation Advisory &rarr;</a>
