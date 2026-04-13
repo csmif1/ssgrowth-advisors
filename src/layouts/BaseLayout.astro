@@ -26,8 +26,7 @@ const ogImageURL = new URL(ogImage, siteUrl).href
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href="/ssfavicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 
@@ -60,7 +59,7 @@ const ogImageURL = new URL(ogImage, siteUrl).href
 		<!-- Navigation -->
 		<nav class="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-sm">
 			<div class="max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16">
-				<a href="/" class="font-display text-white text-lg font-semibold tracking-tight cursor-pointer">Start & Scale</a>
+				<a href="/" class="cursor-pointer"><img src="/sslogo.svg" alt="Start & Scale" height="40" style="height:40px;width:auto;" /></a>
 				<div class="hidden md:flex items-center gap-8">
 					<a href="/about" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">About</a>
 					<a href="/services" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Services</a>
@@ -83,7 +82,7 @@ const ogImageURL = new URL(ogImage, siteUrl).href
 		<!-- Mobile Menu Overlay -->
 		<div id="mobile-menu" class="fixed inset-0 z-[60] bg-dark/98 backdrop-blur-sm hidden" role="dialog" aria-modal="true" aria-label="Navigation menu">
 			<div class="flex items-center justify-between h-16 max-w-6xl mx-auto px-5 sm:px-8">
-				<a href="/" class="font-display text-white text-lg font-semibold tracking-tight">Start & Scale</a>
+				<a href="/"><img src="/sslogo.svg" alt="Start & Scale" height="40" style="height:40px;width:auto;" /></a>
 				<button id="menu-close" type="button" class="flex items-center justify-center w-10 h-10 text-white" aria-label="Close menu">
 					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -141,7 +140,7 @@ const ogImageURL = new URL(ogImage, siteUrl).href
 			<div class="max-w-6xl mx-auto px-5 sm:px-8">
 				<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
 					<div>
-						<a href="/" class="font-display text-white text-lg font-semibold tracking-tight">Start & Scale</a>
+						<a href="/"><img src="/sslogo.svg" alt="Start & Scale" height="40" style="height:40px;width:auto;" /></a>
 						<p class="text-small text-body-light mt-3">Growth advisory for founders and operators.</p>
 						<p class="text-small text-body-light mt-1">Marblehead, MA</p>
 					</div>
