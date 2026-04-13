@@ -17,7 +17,7 @@ I saw this enough times across enough companies that I started sorting every gro
 
 **Deals** is the revenue engine itself. Pipeline volume, conversion rates, average deal size, sales cycle length, churn. The numbers that tell you whether the machine is working.
 
-These three categories aren't independent. They compound each other. Great people working inside broken systems will burn out and leave. Good systems staffed by the wrong people produce mediocre results efficiently. And no amount of deal-making overcomes an org that can't deliver on what it sells.
+These three aren't independent — they compound each other. Put great people inside broken systems and they burn out. Build solid systems and staff them with the wrong people, you just produce mediocre results more efficiently. And none of it matters if the org can't deliver on what sales is out there promising.
 
 ## Where this came from
 
@@ -49,6 +49,6 @@ Before you commit budget, headcount, or your own time, figure out which bucket y
 
 ## One caveat
 
-This framework isn't original. Any operator who's scaled a company will recognize these categories, even if they use different names. The value isn't in the labels. It's in the discipline of diagnosing before prescribing.
+This framework isn't original. Any operator who's scaled a company will recognize these categories, even if they call them something different. The value isn't the labels — it's making yourself slow down and figure out what's actually broken before you start spending money to fix it.
 
 When something breaks, ask: People, Systems, or Deals? Start there.
