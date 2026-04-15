@@ -41,6 +41,8 @@ This person is rarely a VP. They're usually a strong senior AE or a first-time s
 
 Most founders skip to step 5. It costs them 6-12 months and a six-figure severance.
 
-## One more thing
+## Final Thoughts
 
 Founders also wait too long to make the first hire. They keep selling themselves until every other part of the business suffers. If you're the CEO and more than 40% of your week is spent on active sales, you've already waited too long. Start the process now, even if you think you can't afford it. The cost of delaying is higher than the cost of the hire.
+
+<a href="/blog/people-systems-deals" style="display:inline-block;margin-top:1.5rem;padding:0.75rem 1.75rem;background-color:#0D9488;color:white;border-radius:0.375rem;font-weight:600;font-size:0.875rem;text-decoration:none;letter-spacing:0.02em;">Read: People, Systems, Deals &rarr;</a>
