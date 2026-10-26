@@ -19,16 +19,15 @@ const {
   blogAuthor = 'Chris Smith'
 } = Astro.props
 
-const siteUrl = 'https://ssgrowthadvisors.com'
+const siteUrl = Astro.site?.origin
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Start & Scale",
-  "alternateName": "Start & Scale Growth Advisors",
   "url": siteUrl,
   "logo": `${siteUrl}/logo.png`,
-  "description": "Growth advisory for founder-led startups and SMBs. Revenue strategy, operations, fundraising, and AI automation advisory.",
+  "description": "Revenue, brand, communications, operations, fundraising, and AI advisory for founder-led startups, SMBs, and nonprofits. We build what we recommend.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Marblehead",
@@ -38,7 +37,7 @@ const organizationSchema = {
   "founder": {
     "@type": "Person",
     "name": "Chris Smith",
-    "jobTitle": "Founder & Growth Advisor",
+    "jobTitle": "Founder & Operating Partner",
     "url": `${siteUrl}/about`,
     "description": "15+ years in founder-led, high-velocity environments — WeWork, CloudKitchens, Apple. Revenue strategy, operations, and AI advisory for scaling companies.",
     "alumniOf": [
@@ -61,10 +60,11 @@ const organizationSchema = {
     "name": "United States"
   },
   "serviceType": [
-    "Revenue & GTM Strategy",
+    "Revenue & GTM",
+    "Brand & Communications",
     "Operations & Systems",
     "Fundraising & Investor Readiness",
-    "AI & Automation Advisory"
+    "AI & Technology"
   ]
 }
 

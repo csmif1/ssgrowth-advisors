@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ssgrowthadvisors.com/sitemap-index.xml
+Sitemap: https://www.ssgrowthadvisors.com/sitemap-index.xml

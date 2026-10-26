@@ -19,21 +19,12 @@ function formatDate(date: Date): string {
 ---
 
 <BaseLayout
-	title="Blog | Start & Scale Growth Advisory"
-	description="Practical writing on revenue, operations, and growth for founders and operators. No theory. No fluff."
+	title="Blog | Start & Scale"
+	description="Practical writing on revenue, brand, operations, and growth for founders and operators. No theory. No fluff."
 	canonical="/blog"
 >
 	<StructuredData type="organization" />
-					<a href="/case-studies" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Case Studies</a>
-					<a href="/blog" class="text-nav text-accent-muted transition-colors duration-150 cursor-pointer">Blog</a>
-					<a href="/resources" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Resources</a>
-					<a href="/contact" class="text-nav text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Contact</a>
-				</div>
-				<a href="https://calendly.com/chris-ssgrowthadvisors/" target="_blank" rel="noopener noreferrer" class="bg-accent text-white text-btn px-5 py-2.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer">Book a Call</a>
-			</div>
-		</nav>
 
-		<main>
 			<!-- Hero -->
 			<section class="bg-dark pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48 lg:pb-28">
 				<div class="max-w-6xl mx-auto px-5 sm:px-8">
@@ -41,7 +32,7 @@ function formatDate(date: Date): string {
 						On the Record.
 					</h1>
 					<p class="text-body-lg text-body-light mt-6 max-w-2xl">
-						Our perspective on all things revenue, operations, talent, AI, and technology.
+						Our perspective on all things revenue, brand, operations, talent, AI, and technology.
 					</p>
 				</div>
 			</section>
@@ -56,7 +47,7 @@ function formatDate(date: Date): string {
 									<p class="text-small text-body">{formatDate(post.data.date)} &middot; {readingTime(post.body ?? '')} &middot; {post.data.author}</p>
 									<h2 class="font-display text-headline text-h2 lg:text-[2.25rem] lg:leading-[1.1] mt-3 group-hover:text-accent transition-colors duration-150">{post.data.title}</h2>
 									<p class="text-body-lg text-body mt-3 max-w-3xl">{post.data.description}</p>
-									<span class="text-accent text-btn mt-4 inline-block group-hover:text-accent-hover transition-colors duration-150">Read post &rarr;</span>
+									<span class="text-accent-hover text-btn mt-4 inline-block group-hover:underline underline-offset-4 transition-colors duration-150">Read post &rarr;</span>
 								</a>
 							</article>
 						))}
@@ -70,7 +61,7 @@ function formatDate(date: Date): string {
 					<h2 class="font-display text-white text-h2 lg:text-[3rem] lg:leading-[1.1]">Want to talk through any of this?</h2>
 					<p class="text-body-lg text-body-light mt-4 max-w-xl mx-auto">30 minutes. We'll listen to where you are and tell you what we'd do differently.</p>
 					<div class="mt-10 flex flex-wrap justify-center gap-4 items-center">
-						<a href="https://calendly.com/chris-ssgrowthadvisors/" target="_blank" rel="noopener noreferrer" class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block">
+						<a href="https://calendly.com/chris-ssgrowthadvisors/" target="_blank" rel="noopener noreferrer" class="bg-accent-hover text-white text-btn px-7 py-3.5 rounded hover:brightness-90 transition duration-150 cursor-pointer inline-block">
 							Book a Call
 						</a>
 						<a href="/contact" class="text-body-light text-btn hover:text-white transition-colors duration-150 cursor-pointer inline-block py-3.5">

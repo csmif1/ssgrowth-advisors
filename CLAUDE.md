@@ -2,7 +2,7 @@
 
 ## What This Is
 
-Website and digital presence for Start & Scale, a growth advisory practice run by Chris Smith. This site is both a lead generation tool and a proof of concept — it should demonstrate through its own execution what great looks like: performance, SEO, design, accessibility, code quality. Every technical detail is part of the pitch.
+Website and digital presence for Start & Scale, an operating partner firm run by Chris Smith (see Positioning below). This site is both a lead generation tool and a proof of concept — it should demonstrate through its own execution what great looks like: performance, SEO, design, accessibility, code quality. Every technical detail is part of the pitch.
 
 - **Domain:** ssgrowthadvisors.com (registered at Bluehost, DNS pointed to Vercel)
 - **Stack:** Astro + Tailwind CSS
@@ -12,17 +12,31 @@ Website and digital presence for Start & Scale, a growth advisory practice run b
 
 ---
 
+## Positioning (Current — Write to This)
+
+- **Descriptor:** "Operating Partners". Never "Growth Advisory" or "Growth Advisors".
+- **The line:** "Operating partners who meet founders and leadership teams where they are."
+- **What operating partner means:** we advise, build and hand off. Never promise to run, monitor or operate a client's systems. No uptime, on-call or managed-services language.
+- **Stages:** 0→1 (pre-revenue to $1M), 1→10 ($1M to $10M), 10→50 ($10M to $50M) and 50+ ($50M and up), by annual revenue, or annual budget for nonprofits. Every engagement is scoped to the client's stage. Use the stages where they help a reader place themselves; don't restate the whole framework on every page. The Home H1 ("Your company outgrew your playbook.") sets up the stages heading ("What got you here won't take you there."). Stage data lives in `src/data/stages.ts`.
+- **Five practices, in this order:** Revenue & GTM, Brand & Communications, Operations & Systems, Fundraising & Investor Readiness, AI & Technology.
+- **Proof order:** Legal-Tech SaaS Platform leads Selected Work on Home and the Case Studies page.
+- **Voice:** write as an advisory firm ("our advisors"), not as a résumé.
+- **Scale claim:** our advisors have operated from pre-revenue to over $1B in ARR. $20M→$120M is Chris's personal WeWork result: use it only as that specific outcome, never as the ceiling of the firm's experience.
+- **Experience list:** nine companies, in this order: Apple, JPMorgan Chase, WeWork, CloudKitchens, Opensignal, Blitzy, Allwhere, Barkbus, TESF. Shown as text only, never logos (Apple's trademark guidelines bar its logo on websites without a written license). Data lives in `src/data/experience.ts`.
+
+---
+
 ## Site Structure (7-8 Pages)
 
-1. **Home** — Hero with positioning statement, social proof snapshots, services overview, CTA
-2. **About** — Chris's story told through the lens of disruptive industries and hypergrowth. Not a cheerleading page — a credibility page that shows pattern recognition across chaotic environments.
-3. **Services** — Four offering areas with descriptions, outcomes, and individual CTAs. AI & Automation Advisory should emphasize that Chris builds the technology, not just the strategy.
+1. **Home** — Hero with positioning statement, proof stats, experience strip, stages section, practices overview, selected work, CTA
+2. **About** — The firm's track record told through the lens of disruptive industries and hypergrowth, with the company showcase. Not a cheerleading page — a credibility page that shows pattern recognition across chaotic environments.
+3. **Services** — Five practice areas with descriptions, outcomes, and individual CTAs. AI & Technology should emphasize that we build the technology, not just the strategy.
 4. **Case Studies** — 3-4 outcome-first snapshots (2-3 paragraphs each). Numbers lead, narrative follows. Frame around the chaos-to-order arc, not just revenue numbers.
 5. **Blog** — Thought leadership. "People, Systems, Deals" framework essay goes here. Short-form posts cross-posted to LinkedIn.
 6. **Resources** — Downloadable assets, frameworks, guides. Lead capture opportunity.
 7. **Contact** — Calendly embed + simple contact form. No friction.
 
-Optional 8th page: **AI Advisory** — dedicated page for the AI/automation practice area. This is where the "I built a SaaS platform from scratch using AI tools" story lives with depth.
+Optional 8th page: **AI Advisory** — dedicated page for the AI & Technology practice area. This is where the "I built a SaaS platform from scratch using AI tools" story lives with depth.
 
 ---
 
@@ -44,24 +58,25 @@ The positioning is three-layered: Chris has scaled revenue inside disruptive, fo
 2. **Cross-functional leadership without direct authority.** His consistent pattern: imposed clarity, drove accountability, kept execution moving — across sales, marketing, ops, and CS teams that didn't report to him.
 3. **He builds the technology, not just the strategy.** Built TrustFlow360 (AI-powered SaaS platform) end-to-end using Claude Code. Runs Salesforce NPSP, SFMC, GA4 integrations, and deploys production code. This isn't a consultant who hands you a deck — he can implement.
 
-### Anchor Bio (Use for All First-Person Copy)
+### Anchor Bio (Source Material, Not Site Copy)
+
+Site copy is written as a firm ("our advisors"), not in Chris's first person. Use the bio for facts.
 
 "15+ years in founder-led, high-velocity environments — WeWork under Adam, CloudKitchens under Travis, Apple under Steve. I've led cross-functional initiatives across sales, marketing, and ops, usually without direct authority. My job has been to impose clarity, drive accountability, and keep execution moving."
 
 ### Target Clients
 
-Founder-led startups (Seed through Series B) and SMBs scaling past the founder-led phase. Horizontal — no single vertical.
+Founder-led startups, SMBs and nonprofits scaling past what got them here, placed by stage (0→1 through 50+). Horizontal — no single vertical.
 
 ---
 
-## Services (Working Structure)
-
-Naming and packaging are being refined — don't treat these as final product names:
+## Practices (Final Names, in This Order)
 
 - **Revenue & GTM** — Sales process, pipeline, pricing, channel strategy. Chris has built revenue orgs from scratch (CloudKitchens: 42 people, 9 markets, 8 months) and scaled existing ones (WeWork: $20M→$120M ARR).
-- **Operations & Systems** — Salesforce/CRM, marketing automation, process design, team structure. Not just strategy — Chris configures and deploys the systems himself.
+- **Brand & Communications** — Positioning, core messaging, brand refreshes from audit to launch (with design partners on visual identity), communications plans for each audience, and the website that carries the story.
+- **Operations & Systems** — Tech stack audits, Salesforce/CRM, marketing automation, process design, team structure. Not just strategy — we configure and deploy the systems ourselves.
 - **Fundraising & Investor Readiness** — Deck, narrative, metrics packaging, investor outreach strategy. Informed by experience inside companies at every stage from stealth (Allwhere) to IPO-track (WeWork).
-- **AI & Automation Advisory** — Feasibility analysis, tool selection, implementation roadmap, agentic workflow design. This is where the "builds the tech" differentiator is strongest: Chris built a full-stack SaaS platform (React/TypeScript/Supabase, 19 Edge Functions, AI document processing) using Claude Code. He doesn't just recommend AI tools — he ships production code.
+- **AI & Technology** — AI pilots, workflow automation and team rollout inside the client's own environment. Engagements run pilot (2–4 weeks), then build and hand off, then monthly advisory. This is where the "builds the tech" differentiator is strongest: Chris built a full-stack SaaS platform (React/TypeScript/Supabase, 23 Edge Functions, AI document processing) using Claude Code. We don't just recommend AI tools — we ship them, then hand them off.
 
 "People, Systems, Deals" is Chris's internal operating framework validated during startup time. It may appear as a blog post or thought leadership content — not as the primary service framing on the site.
 
@@ -73,6 +88,7 @@ Naming and packaging are being refined — don't treat these as final product na
 
 **Do:**
 - Write like a seasoned operator who's been in the room, not a consultant selling frameworks
+- Write as an advisory firm ("our advisors"), not as a résumé
 - Use concrete numbers and outcomes (ARR growth, % of plan, team size, timeline)
 - Be direct — say what you mean in fewer words
 - Sound like someone you'd want to grab coffee with, who also happens to have scaled a $120M region
@@ -84,6 +100,7 @@ Naming and packaging are being refined — don't treat these as final product na
 - Hedge with "it's important to note" or "in today's fast-paced world"
 - Over-explain. Trust the reader to connect dots.
 - Use "breaking barriers" or similar cliché phrases
+- Promise to run, monitor or operate client systems (no uptime, on-call or managed-services language)
 - Cheerleadfor Chris. The site proves credibility through specifics, not superlatives. "Scaled $20M→$120M ARR" is more convincing than "visionary revenue leader."
 
 **Email sign-off style:** Short, warm, one specific insight, simple close. Signs "All the best, Chris."
@@ -174,8 +191,12 @@ Chris also runs:
 Separate codebases and brands. Don't cross-pollinate content or voice unless explicitly asked.
 
 These projects can be used as case study source material for ssgrowthadvisors.com:
-- **RealPrepare** → case study for Revenue & GTM and AI & Automation Advisory
-- **TrustFlow360** → case study for Operations & Systems and AI & Automation Advisory
-- **TESF** → case study for Fundraising & Investor Readiness and AI & Automation Advisory
+- **TrustFlow360** → Legal-Tech SaaS Platform case (Operations & Systems, AI & Technology)
+- **RealPrepare** → Off-Grid Education Startup case (Revenue & GTM, AI & Technology, Brand & Communications)
+- **TESF** → National Nonprofit case (Operations & Systems, Fundraising, Brand & Communications)
 
-**Anonymization rule:** All three must be anonymized in case studies. Reference by industry or company type (e.g., "a national nonprofit," "an off-grid education startup," "a legal-tech SaaS platform") — never by name. Highlight specific outcomes and services provided.
+A fourth case, **Local Nonprofit** (a volunteer-powered community organization in Massachusetts; Brand & Communications, Operations & Systems), is client work. Case order on Home and Case Studies: Legal-Tech SaaS Platform, Local Nonprofit, National Nonprofit, Off-Grid Education Startup.
+
+**Anonymization rule:** All case studies must be anonymized. Reference by industry or company type (e.g., "a national nonprofit," "an off-grid education startup," "a legal-tech SaaS platform," "a local nonprofit") — never by name. Highlight specific outcomes and services provided.
+
+**Never-name rule:** The real names connected to the Local Nonprofit case are listed in `CLAUDE.local.md` (kept out of git because this repo is public). They never appear anywhere on the site: copy, alt text, metadata, slugs or file names. Never connect Marblehead to a case study. Marblehead, MA appears only as Start & Scale's own location (footer, Contact, structured data).

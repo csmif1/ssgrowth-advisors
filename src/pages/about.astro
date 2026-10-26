@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import StructuredData from '../components/StructuredData.astro'
+import CompanyShowcase from '../components/CompanyShowcase.astro'
 ---
 
 <BaseLayout
-	title="About | Start & Scale Growth Advisory"
-	description="Growth advisory grounded in operating experience, not frameworks. Our team has scaled revenue inside WeWork, CloudKitchens, Apple, and more."
+	title="About | Start & Scale"
+	description="Operating partners who've done the work, not studied it. Our advisors have operated at every stage, from pre-revenue to over $1B in ARR."
 	canonical="/about"
 >
 	<StructuredData type="organization" />
@@ -17,64 +18,18 @@ import StructuredData from '../components/StructuredData.astro'
 						We've built companies that most people read about.
 					</h1>
 					<p class="text-body-lg text-body-light mt-6 max-w-2xl">
-						15+ years inside founder-led companies. Apple under Steve Jobs, WeWork under Adam Neumann, CloudKitchens under Travis Kalanick. Our team has launched markets, navigated and closed $100M+ in enterprise deals, built multilayered teams, and kept execution moving across orgs that didn't report to us.
+						Start & Scale is an operating partner that meets founders and leadership teams where they are. Our advisors have launched markets, closed $100M+ in enterprise deals, built teams from zero, and kept execution moving across orgs that didn't report to them. Now we do that work alongside our clients.
 					</p>
 				</div>
 			</section>
 
-			<!-- Career Arc -->
-			<section class="bg-background py-12 sm:py-16 lg:py-20">
-				<div class="max-w-6xl mx-auto px-5 sm:px-8">
-					<h2 class="font-display text-headline text-h2 lg:text-[3rem] lg:leading-[1.1]">Our founding team's track record</h2>
-					<p class="text-body-lg text-body mt-4 max-w-2xl">Six companies. All founder-led. All moving faster than their systems could handle.</p>
-
-					<div class="mt-10 space-y-8 lg:space-y-10">
-						<!-- TESF -->
-						<div class="border-l-2 border-accent pl-6 sm:pl-8">
-							<p class="text-small text-body uppercase tracking-wider">2009 – Present</p>
-							<h3 class="font-display text-headline text-h3 mt-2">TESF — Chief Advancement Officer</h3>
-							<p class="text-body text-body mt-3 max-w-3xl">
-								Co-founded a national 501(c)(3) that now operates across 29 states. Lead operations, fundraising, and technology modernization. This is where the systems-building started.
-							</p>
-						</div>
-
-						<!-- Apple -->
-						<div class="border-l-2 border-accent pl-6 sm:pl-8">
-							<p class="text-small text-body uppercase tracking-wider">2010 – 2013</p>
-							<h3 class="font-display text-headline text-h3 mt-2">Apple Retail — Team Lead, Business Sales</h3>
-							<p class="text-body text-body mt-3 max-w-3xl">
-								Led 15 Business Specialists in Apple's highest-grossing store. 175 SMB and enterprise clients. $7M+ in revenue across 12 quarters. Top 1% globally three consecutive years: 140%, 164%, 131% of plan.
-							</p>
-						</div>
-
-						<!-- WeWork -->
-						<div class="border-l-2 border-accent pl-6 sm:pl-8">
-							<p class="text-small text-body uppercase tracking-wider">2014 – 2020</p>
-							<h3 class="font-display text-headline text-h3 mt-2">WeWork — Community Manager → Regional Sales Director</h3>
-							<p class="text-body text-body mt-3 max-w-3xl">
-								Early employee. Promoted four times in five and a half years. Scaled regional ARR from $20M to $120M in 24 months across 21 locations. Led 7 market launches. Closed $70M+ in enterprise deals with Amazon, Puma, EzCater, and the U.S. Air Force. Top performer globally four consecutive years. Stayed through the IPO run, the restructuring, and the layoffs.
-							</p>
-						</div>
-
-						<!-- CloudKitchens -->
-						<div class="border-l-2 border-accent pl-6 sm:pl-8">
-							<p class="text-small text-body uppercase tracking-wider">2020 – 2021</p>
-							<h3 class="font-display text-headline text-h3 mt-2">CloudKitchens — Northeast Business Lead</h3>
-							<p class="text-body text-body mt-3 max-w-3xl">
-								Deployed by the COO to build the Northeast from scratch. Recruited a 42-person org (AEs, SDRs, CSMs) and launched 9 markets in 8 months. Hit 120%+ of plan. 40% faster time-to-revenue than any other region.
-							</p>
-						</div>
-
-						<!-- Allwhere -->
-						<div class="border-l-2 border-accent pl-6 sm:pl-8">
-							<p class="text-small text-body uppercase tracking-wider">2022</p>
-							<h3 class="font-display text-headline text-h3 mt-2">Allwhere — Head of Sales & Partnerships</h3>
-							<p class="text-body text-body mt-3 max-w-3xl">
-								Stealth-stage startup. Built the GTM strategy from zero. Generated 50% of total company revenue in 6 months. 210% of plan. 35% of new logos.
-							</p>
-						</div>
-					</div>
+			<!-- Track Record -->
+			<section class="bg-background pt-12 sm:pt-16 lg:pt-20" aria-labelledby="track-record-heading">
+				<div class="max-w-6xl mx-auto px-5 sm:px-8 pb-12 sm:pb-16 lg:pb-20">
+					<h2 id="track-record-heading" class="font-display text-headline text-h2 lg:text-[3rem] lg:leading-[1.1]">Our track record</h2>
+					<p class="text-body-lg text-body mt-4 max-w-3xl">Startups, nonprofits, and Fortune 50 companies all run into the same problem: the business moves faster than its systems. Our advisors have seen it from every side, building and scaling founder-led organizations and operating inside some of the world's most valuable companies. We partner with founders and leadership teams to diagnose what's holding the business back, co-create the strategy and tactics, and translate the plan into measurable growth.</p>
 				</div>
+				<CompanyShowcase />
 			</section>
 
 			<!-- Why Work With Me -->
@@ -82,12 +37,12 @@ import StructuredData from '../components/StructuredData.astro'
 				<div class="max-w-6xl mx-auto px-5 sm:px-8">
 					<h2 class="font-display text-headline text-h2 lg:text-[3rem] lg:leading-[1.1]">Why work with us</h2>
 
-					<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mt-10">
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-10">
 						<!-- Differentiator 1 -->
 						<div class="bg-background p-6 lg:p-8 rounded">
 							<h3 class="font-display text-headline text-h4">We've operated inside hypergrowth, not studied it.</h3>
 							<p class="text-body text-body mt-4">
-								Most consultants know hypergrowth from case studies. We know it from the org chart that changed monthly, the systems that broke under load, and the timelines that got cut in half on a Thursday. WeWork, CloudKitchens, and Apple taught our team what scaling feels like at the operational level.
+								Most consultants know hypergrowth from case studies. We know it from the org chart that changed monthly, the systems that broke under load, and the timelines that got cut in half on a Thursday. Our advisors have operated at every stage, from pre-revenue to over $1B in ARR. We know what breaks at each one, and what to build before it does.
 							</p>
 						</div>
 
@@ -101,9 +56,17 @@ import StructuredData from '../components/StructuredData.astro'
 
 						<!-- Differentiator 3 -->
 						<div class="bg-background p-6 lg:p-8 rounded">
+							<h3 class="font-display text-headline text-h4">We write the story your team can tell.</h3>
+							<p class="text-body text-body mt-4">
+								Positioning usually gets written in a conference room and rarely survives the first sales call. Ours starts in front of the people you need to convince, whether that's a buyer, a donor or a board. We listen for what lands, cut what stalls, and hand your team language they'll actually use.
+							</p>
+						</div>
+
+						<!-- Differentiator 4 -->
+						<div class="bg-background p-6 lg:p-8 rounded">
 							<h3 class="font-display text-headline text-h4">We build the technology ourselves.</h3>
 							<p class="text-body text-body mt-4">
-								We built a full-stack SaaS platform end-to-end: React, TypeScript, Supabase, 19 Edge Functions, AI document processing. We configure Salesforce, deploy marketing automation, and ship production code. When we recommend a system, we can implement it. No handoff to another vendor. No six-month integration project.
+								We built a full-stack SaaS platform end-to-end: React, TypeScript, Supabase, 23 Edge Functions, AI document processing. We configure Salesforce, deploy marketing automation, and ship production code. When we recommend a system, we can implement it. No handoff to another vendor. No six-month integration project.
 							</p>
 						</div>
 					</div>
@@ -116,7 +79,7 @@ import StructuredData from '../components/StructuredData.astro'
 					<h2 class="font-display text-white text-h2 lg:text-[3rem] lg:leading-[1.1]">Curious whether we'd be a fit?</h2>
 					<p class="text-body-lg text-body-light mt-4 max-w-xl mx-auto">30 minutes. No pitch, no deck. Just a conversation about where you are and what might move the needle.</p>
 					<div class="mt-10 flex flex-wrap justify-center gap-4 items-center">
-						<a href="https://calendly.com/chris-ssgrowthadvisors/" target="_blank" rel="noopener noreferrer" class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block">
+						<a href="https://calendly.com/chris-ssgrowthadvisors/" target="_blank" rel="noopener noreferrer" class="bg-accent-hover text-white text-btn px-7 py-3.5 rounded hover:brightness-90 transition duration-150 cursor-pointer inline-block">
 							Book a Call
 						</a>
 						<a href="/contact" class="text-body-light text-btn hover:text-white transition-colors duration-150 cursor-pointer inline-block py-3.5">

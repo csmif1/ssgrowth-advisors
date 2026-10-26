@@ -1,0 +1,93 @@
+---
+import { companies, showExperienceTags } from '../data/experience'
+---
+
+<!-- Company Showcase: full-bleed type wall -->
+<div class="bg-dark py-16 sm:py-20 lg:py-28">
+	<div class="max-w-6xl mx-auto px-5 sm:px-8">
+		<p id="showcase-label" class="text-small text-accent uppercase tracking-widest">Where our advisors have operated</p>
+		<ul
+			role="list"
+			aria-labelledby="showcase-label"
+			class="showcase-list name-list flex flex-wrap items-center gap-y-1 sm:gap-y-2 mt-8 lg:mt-10 font-display font-bold text-[clamp(2rem,1.2rem+4vw,4.5rem)] leading-[1.15] tracking-[-0.02em] [--slash-gap:0.55em]"
+			data-showcase-list
+		>
+			{companies.map((company, i) => (
+				<li tabindex="0" class="showcase-name" style={`--i: ${i}`}>
+					{company.name}
+					{showExperienceTags && company.tag && (
+						<span class="ml-2 align-top font-body text-small font-medium uppercase tracking-widest text-accent">{company.tag}</span>
+					)}
+					{i < companies.length - 1 && <span class="name-slash" aria-hidden="true" />}
+				</li>
+			))}
+		</ul>
+	</div>
+</div>
+
+<script>
+	// On phones, light the names up one after another the first time the wall scrolls into view.
+	const list = document.querySelector('[data-showcase-list]')
+	const sequenceAllowed = window.matchMedia('(prefers-reduced-motion: no-preference) and (max-width: 639px)').matches
+
+	if (list && sequenceAllowed && 'IntersectionObserver' in window) {
+		const rect = list.getBoundingClientRect()
+		const visibleOnLoad = rect.top < window.innerHeight && rect.bottom > 0
+
+		if (!visibleOnLoad) {
+			const observer = new IntersectionObserver((entries) => {
+				if (!entries[0].isIntersecting) return
+				observer.disconnect()
+				list.classList.add('is-sequencing')
+				list.lastElementChild?.addEventListener('animationend', () => list.classList.remove('is-sequencing'), { once: true })
+			}, { rootMargin: '0px 0px -25% 0px' })
+			observer.observe(list)
+		}
+	}
+</script>
+
+<style>
+	.showcase-name {
+		color: var(--color-body-light);
+		cursor: default;
+		transition: color 200ms ease-out, opacity 200ms ease-out;
+	}
+
+	/* Hover or focus lights one name and dims the rest */
+	@media (hover: hover) {
+		.showcase-list:has(.showcase-name:hover) .showcase-name:not(:hover) {
+			opacity: 0.5;
+		}
+
+		.showcase-name:hover {
+			color: var(--color-white);
+		}
+	}
+
+	.showcase-list:has(.showcase-name:focus-visible) .showcase-name:not(:focus-visible) {
+		opacity: 0.5;
+	}
+
+	.showcase-name:focus-visible {
+		color: var(--color-white);
+		outline-offset: 4px;
+	}
+
+	@media (prefers-reduced-motion: no-preference) and (max-width: 639px) {
+		.is-sequencing .showcase-name {
+			animation: showcase-light 700ms ease-out calc(var(--i) * 120ms);
+		}
+	}
+
+	@keyframes showcase-light {
+		40% {
+			color: var(--color-white);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.showcase-name {
+			transition: none;
+		}
+	}
+</style>

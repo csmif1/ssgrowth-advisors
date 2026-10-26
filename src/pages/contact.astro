@@ -1,11 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import StructuredData from '../components/StructuredData.astro'
+import StagePicker from '../components/StagePicker.astro'
+import FormStatus from '../components/FormStatus.astro'
+import { formEndpoints } from '../data/forms'
 ---
 
 <BaseLayout
-	title="Contact | Start & Scale Growth Advisory"
-	description="Book a 30-minute call or send a message. No pitch, no pressure. Growth advisory for founders and operators."
+	title="Contact | Start & Scale"
+	description="Book a 30-minute call or send a message. No pitch, no pressure. Operating partners who meet founders and leadership teams where they are."
 	canonical="/contact"
 >
 	<StructuredData type="organization" />
@@ -42,41 +45,48 @@ import StructuredData from '../components/StructuredData.astro'
 							<h2 class="font-display text-headline text-h2 lg:text-[2.25rem] lg:leading-[1.1]">Send us a message</h2>
 							<p class="text-body text-body mt-4">We respond to every message within one business day.</p>
 
-							<form class="mt-6 sm:mt-8 space-y-5 sm:space-y-6" action="#" method="POST">
+							<form class="mt-6 sm:mt-8 space-y-5 sm:space-y-6" action={formEndpoints.contact} method="POST" data-formspree>
+								<input type="hidden" name="_subject" value="New message from ssgrowthadvisors.com" />
+
 								<div>
-									<label for="name" class="text-small text-headline font-semibold block mb-2">Name <span class="text-accent">*</span></label>
+									<label for="name" class="text-small text-headline font-semibold block mb-2">Name <span class="text-accent-hover">*</span></label>
 									<input
 										type="text"
 										id="name"
 										name="name"
 										required
-										class="w-full bg-surface border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150"
+										autocomplete="name"
+										class="w-full bg-surface border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent aria-invalid:border-red-700 transition-colors duration-150"
 										placeholder="Your name"
 									/>
 								</div>
 
 								<div>
-									<label for="email" class="text-small text-headline font-semibold block mb-2">Email <span class="text-accent">*</span></label>
+									<label for="email" class="text-small text-headline font-semibold block mb-2">Email <span class="text-accent-hover">*</span></label>
 									<input
 										type="email"
 										id="email"
 										name="email"
 										required
-										class="w-full bg-surface border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150"
+										autocomplete="email"
+										class="w-full bg-surface border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent aria-invalid:border-red-700 transition-colors duration-150"
 										placeholder="you@company.com"
 									/>
 								</div>
 
 								<div>
-									<label for="company" class="text-small text-headline font-semibold block mb-2">Company</label>
+									<label for="company" class="text-small text-headline font-semibold block mb-2">Company or organization</label>
 									<input
 										type="text"
 										id="company"
 										name="company"
-										class="w-full bg-surface border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150"
+										autocomplete="organization"
+										class="w-full bg-surface border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent aria-invalid:border-red-700 transition-colors duration-150"
 										placeholder="Your company"
 									/>
 								</div>
+
+								<StagePicker id="contact-stage" helper="Annual revenue, or annual budget for nonprofits." />
 
 								<div>
 									<label for="message" class="text-small text-headline font-semibold block mb-2">Message</label>
@@ -84,27 +94,41 @@ import StructuredData from '../components/StructuredData.astro'
 										id="message"
 										name="message"
 										rows="5"
-										class="w-full bg-surface border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150 resize-y"
+										class="w-full bg-surface border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent aria-invalid:border-red-700 transition-colors duration-150 resize-y"
 										placeholder="What's on your mind?"
 									></textarea>
 								</div>
 
+								<!-- Spam trap: people never see or fill this -->
+								<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" />
+
 								<button
 									type="submit"
-									class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block"
+									class="bg-accent-hover text-white text-btn px-7 py-3.5 rounded hover:brightness-90 transition duration-150 cursor-pointer inline-block"
 								>
 									Send Message
 								</button>
+								<FormStatus
+									success="Thanks so much for contacting us. We'll be in touch soon."
+									error="That didn't go through. Try again in a minute, or pick a time on the calendar."
+								/>
 							</form>
 						</div>
 					</div>
 
 					<!-- Location -->
 					<div class="mt-10 sm:mt-16 pt-8 border-t border-border">
-						<p class="text-small text-body">Marblehead, MA &middot; Working with founders and operators everywhere.</p>
+						<p class="text-small text-body">Marblehead, MA &middot; Working with founders, operators, and nonprofits everywhere.</p>
 					</div>
 				</div>
 			</section>
+
+	<script>
+		// Pre-pick the stage when the page opens from a stage link, e.g. /contact?stage=10-50
+		const stage = new URLSearchParams(window.location.search).get('stage')
+		const match = Array.from(document.querySelectorAll('input[name="stage"]')).find((input) => input.value === stage)
+		if (match) match.checked = true
+	</script>
 
 	<!-- Calendly embed script -->
 	<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />

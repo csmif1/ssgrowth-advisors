@@ -1,0 +1,126 @@
+---
+import { stages } from '../data/stages'
+---
+
+<!-- Stages -->
+<section class="bg-dark py-12 sm:py-16 lg:py-20" aria-labelledby="stages-heading">
+	<div class="max-w-6xl mx-auto px-5 sm:px-8">
+		<p class="text-small text-accent uppercase tracking-widest mb-4">Where we meet you</p>
+		<h2 id="stages-heading" class="font-display text-white text-h2 lg:text-[3rem] lg:leading-[1.1] max-w-3xl">What got you here won't take you there.</h2>
+		<p class="text-body-lg text-body-light mt-4 max-w-2xl">Every stage of growth needs a new playbook. We build the next one with you.</p>
+
+		<div class="stages relative mt-10 lg:mt-14" data-stages>
+			<!-- Progress track: runs through the stage numbers on desktop, down the left side on phones -->
+			<div class="stages-track" aria-hidden="true"></div>
+			<ol role="list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+				{stages.map((stage) => (
+					<li class="group relative p-6 cursor-pointer motion-safe:transition-transform motion-safe:duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:has-[:focus-visible]:-translate-y-0.5">
+						<h3 class="font-display text-stat sm:text-[3.5rem] lg:text-[3rem] xl:text-[3.5rem] leading-none">
+							<a
+								href={`/contact?stage=${stage.slug}`}
+								class="focus-visible:outline-none after:absolute after:inset-0 focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-accent"
+							><span class="sr-only">Talk to us about </span><span class="relative bg-dark -ml-3 px-3 text-body-light group-hover:text-white group-has-[:focus-visible]:text-white transition-colors duration-200" aria-hidden="true">{stage.label}</span><span class="sr-only">{stage.spoken}</span></a>
+						</h3>
+						<p class="text-small text-body-light/70 uppercase tracking-widest mt-4">{stage.range}</p>
+						<dl class="mt-6 space-y-4">
+							<div>
+								<dt class="text-small text-accent uppercase tracking-wider">Got you here</dt>
+								<dd class="text-body text-body-light mt-1">{stage.gotYouHere}</dd>
+							</div>
+							<div>
+								<dt class="text-small text-accent uppercase tracking-wider">Takes you there</dt>
+								<dd class="text-body text-body-light mt-1">{stage.takesYouThere}</dd>
+							</div>
+						</dl>
+						<span class="block mt-6 text-btn text-accent group-hover:text-accent-muted group-has-[:focus-visible]:text-accent-muted transition-colors duration-200" aria-hidden="true">&rarr;</span>
+					</li>
+				))}
+			</ol>
+		</div>
+
+		<p class="text-small text-body-light/70 mt-8">Annual revenue. For nonprofits, read it as annual budget.</p>
+		<a href="/resources" class="text-accent-muted text-btn hover:text-white transition-colors duration-150 cursor-pointer inline-block mt-3 py-2">
+			Not sure where to start? Take the Growth Readiness Assessment &rarr;
+		</a>
+	</div>
+</section>
+
+<script>
+	// Draw the progress track once, the first time the stages scroll into view.
+	const stagesEl = document.querySelector('[data-stages]')
+	const motionAllowed = window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+
+	if (stagesEl && motionAllowed && 'IntersectionObserver' in window) {
+		const belowFold = stagesEl.getBoundingClientRect().top > window.innerHeight
+
+		if (belowFold) {
+			stagesEl.classList.add('is-armed')
+			const observer = new IntersectionObserver((entries) => {
+				if (!entries[0].isIntersecting) return
+				observer.disconnect()
+				stagesEl.classList.remove('is-armed')
+			}, { rootMargin: '0px 0px -25% 0px' })
+			observer.observe(stagesEl)
+		}
+	}
+</script>
+
+<style>
+	.stages-track {
+		position: absolute;
+		background-color: var(--color-accent);
+	}
+
+	/* Phones: down the left side */
+	@media (max-width: 639px) {
+		.stages-track {
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 2px;
+			transform-origin: top;
+		}
+	}
+
+	/* Tablet 2x2: no continuum to draw */
+	@media (min-width: 640px) and (max-width: 1023px) {
+		.stages-track {
+			display: none;
+		}
+	}
+
+	/* Desktop: through the middle of the stage numbers (card padding + half the number height) */
+	@media (min-width: 1024px) {
+		.stages-track {
+			top: 3rem;
+			left: 1.5rem;
+			right: 0;
+			height: 2px;
+			transform-origin: left;
+		}
+	}
+
+	@media (min-width: 1280px) {
+		.stages-track {
+			top: 3.25rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.stages-track {
+			transition: transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+		}
+
+		/* Hidden instantly while waiting; the transition above runs when the class comes off */
+		.is-armed .stages-track {
+			transform: scaleX(0);
+			transition: none;
+		}
+	}
+
+	@media (prefers-reduced-motion: no-preference) and (max-width: 639px) {
+		.is-armed .stages-track {
+			transform: scaleY(0);
+		}
+	}
+</style>
