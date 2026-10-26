@@ -238,7 +238,7 @@ let questionNumber = 0
 								<input type="text" name="company" class="w-full bg-background border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150" placeholder="Company" />
 							</div>
 							<input type="email" name="email" required class="w-full bg-background border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150" placeholder="you@company.com" />
-							<button type="submit" class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block">
+							<button type="submit" class="bg-accent-hover text-white text-btn px-7 py-3.5 rounded hover:brightness-90 transition duration-150 cursor-pointer inline-block">
 								Send My Results
 							</button>
 						</form>
@@ -252,7 +252,7 @@ let questionNumber = 0
 					<h2 class="font-display text-white text-h2 lg:text-[3rem] lg:leading-[1.1]">Want help closing the gaps?</h2>
 					<p class="text-body-lg text-body-light mt-4 max-w-xl mx-auto">30 minutes. We'll walk through your results and tell you where to focus first.</p>
 					<div class="mt-10 flex flex-wrap justify-center gap-4 items-center">
-						<a href="https://calendly.com/chris-ssgrowthadvisors/" target="_blank" rel="noopener noreferrer" class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block">
+						<a href="https://calendly.com/chris-ssgrowthadvisors/" target="_blank" rel="noopener noreferrer" class="bg-accent-hover text-white text-btn px-7 py-3.5 rounded hover:brightness-90 transition duration-150 cursor-pointer inline-block">
 							Book a Call
 						</a>
 						<a href="/contact" class="text-body-light text-btn hover:text-white transition-colors duration-150 cursor-pointer inline-block py-3.5">
@@ -353,11 +353,11 @@ let questionNumber = 0
 					label.addEventListener('click', () => {
 						// Clear active state from siblings
 						labels.forEach((l) => {
-							l.classList.remove('bg-accent', 'border-accent', 'text-white')
+							l.classList.remove('bg-accent-hover', 'border-accent-hover', 'text-white')
 							l.classList.add('border-border', 'text-body')
 						})
 						// Set active state on clicked
-						label.classList.add('bg-accent', 'border-accent', 'text-white')
+						label.classList.add('bg-accent-hover', 'border-accent-hover', 'text-white')
 						label.classList.remove('border-border', 'text-body')
 
 						// Small delay to let radio check propagate

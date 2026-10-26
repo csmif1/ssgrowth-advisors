@@ -53,4 +53,4 @@ This framework isn't original. Any operator who's scaled a company will recogniz
 
 When something breaks, ask: People, Systems, or Deals? Start there.
 
-<a href="/services" style="display:inline-block;margin-top:1.5rem;padding:0.75rem 1.75rem;background-color:#0D9488;color:white;border-radius:0.375rem;font-weight:600;font-size:0.875rem;text-decoration:none;letter-spacing:0.02em;">Learn More About Our Advisory Services &rarr;</a>
+<a href="/services" style="display:inline-block;margin-top:1.5rem;padding:0.75rem 1.75rem;background-color:#0F766E;color:white;border-radius:0.375rem;font-weight:600;font-size:0.875rem;text-decoration:none;letter-spacing:0.02em;">Learn More About Our Advisory Services &rarr;</a>

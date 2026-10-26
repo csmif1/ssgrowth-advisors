@@ -47,4 +47,4 @@ If you've been following AI at all, you've heard the line: "AI is only as good a
 
 The data determines what the model *can* do. The person determines what it *actually* does. That's the whole point of this article — and honestly, that's where the game is right now.
 
-<a href="/services#ai-technology" style="display:inline-block;margin-top:1.5rem;padding:0.75rem 1.75rem;background-color:#0D9488;color:white;border-radius:0.375rem;font-weight:600;font-size:0.875rem;text-decoration:none;letter-spacing:0.02em;">Learn More About AI & Technology &rarr;</a>
+<a href="/services#ai-technology" style="display:inline-block;margin-top:1.5rem;padding:0.75rem 1.75rem;background-color:#0F766E;color:white;border-radius:0.375rem;font-weight:600;font-size:0.875rem;text-decoration:none;letter-spacing:0.02em;">Learn More About AI & Technology &rarr;</a>
