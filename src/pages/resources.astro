@@ -69,6 +69,7 @@ const categories = [
 // Counters, totals and score bands all derive from the questions above.
 const totalQuestions = categories.reduce((sum, cat) => sum + cat.questions.length, 0)
 const maxScore = totalQuestions * 5
+const scoreFieldName = (name) => `score_${name.toLowerCase().replace(/[^a-z]+/g, '_')}`
 
 const tiers = [
 	{ min: 130, max: 160, name: 'Ready to scale', desc: 'Your foundation is solid. The next step is identifying the highest-leverage growth initiative and executing. Advisory support can accelerate what\'s already working.' },
@@ -80,6 +81,8 @@ const tiers = [
 import BaseLayout from '../layouts/BaseLayout.astro'
 import StructuredData from '../components/StructuredData.astro'
 import StagePicker from '../components/StagePicker.astro'
+import FormStatus from '../components/FormStatus.astro'
+import { formEndpoints } from '../data/forms'
 
 let questionNumber = 0
 ---
@@ -231,16 +234,42 @@ let questionNumber = 0
 					<div class="max-w-xl mx-auto text-center">
 						<h2 class="font-display text-headline text-h2 lg:text-[2.25rem] lg:leading-[1.1]">Want to dig deeper?</h2>
 						<p class="text-body text-body mt-4">Drop your email and we'll send you a detailed breakdown of what each score range means and the specific next steps for your lowest-scoring category.</p>
-						<form class="mt-8 space-y-4" action="#" method="POST">
-							<input type="hidden" name="stage" value="" data-stage-field />
-							<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-								<input type="text" name="name" required class="w-full bg-background border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150" placeholder="Name" />
-								<input type="text" name="company" class="w-full bg-background border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150" placeholder="Company" />
+						<form class="mt-8 space-y-4" action={formEndpoints.results} method="POST" data-formspree>
+							<input type="hidden" name="_subject" value="Assessment results request" />
+							<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+								<div>
+									<label for="results-name" class="text-small text-headline font-semibold block mb-2">Name <span class="text-accent-hover">*</span></label>
+									<input type="text" id="results-name" name="name" required autocomplete="name" class="w-full bg-background border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent aria-invalid:border-red-700 transition-colors duration-150" placeholder="Your name" />
+								</div>
+								<div>
+									<label for="results-company" class="text-small text-headline font-semibold block mb-2">Company or organization</label>
+									<input type="text" id="results-company" name="company" autocomplete="organization" class="w-full bg-background border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent aria-invalid:border-red-700 transition-colors duration-150" placeholder="Your company" />
+								</div>
 							</div>
-							<input type="email" name="email" required class="w-full bg-background border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors duration-150" placeholder="you@company.com" />
+							<div class="text-left">
+								<label for="results-email" class="text-small text-headline font-semibold block mb-2">Email <span class="text-accent-hover">*</span></label>
+								<input type="email" id="results-email" name="email" required autocomplete="email" class="w-full bg-background border border-border rounded px-4 py-3 text-body text-headline placeholder:text-body focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent aria-invalid:border-red-700 transition-colors duration-150" placeholder="you@company.com" />
+							</div>
+
+							<!-- Kept in sync with the assessment by the page script -->
+							<input type="hidden" name="stage" value="" data-stage-field />
+							<input type="hidden" name="questions_answered" value="" data-answered-field />
+							<input type="hidden" name="total_score" value="" data-total-field />
+							<input type="hidden" name="tier" value="" data-tier-field />
+							{categories.map((cat) => (
+								<input type="hidden" name={scoreFieldName(cat.name)} value="" data-cat-field={cat.name} data-cat-max={cat.questions.length * 5} />
+							))}
+
+							<!-- Spam trap: people never see or fill this -->
+							<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" />
+
 							<button type="submit" class="bg-accent-hover text-white text-btn px-7 py-3.5 rounded hover:brightness-90 transition duration-150 cursor-pointer inline-block">
 								Send My Results
 							</button>
+							<FormStatus
+								success="Thanks for taking the assessment. Your results will be in your inbox within 24 hours."
+								error="That didn't go through. Try again in a minute, or book a call below."
+							/>
 						</form>
 					</div>
 				</div>
@@ -275,6 +304,10 @@ let questionNumber = 0
 			const resultDescription = document.getElementById('result-description')
 			const resultStage = document.getElementById('result-stage')
 			const stageField = document.querySelector('[data-stage-field]')
+			const answeredField = document.querySelector('[data-answered-field]')
+			const totalField = document.querySelector('[data-total-field]')
+			const tierField = document.querySelector('[data-tier-field]')
+			const maxScore = totalQuestions * 5
 			const stageInputs = document.querySelectorAll('input[type="radio"][name="stage"]')
 
 			const tiers = JSON.parse(scoringGuide.dataset.tiers)
@@ -328,6 +361,14 @@ let questionNumber = 0
 				answeredCountEl.textContent = answered
 				progressBar.style.width = `${(answered / totalQuestions) * 100}%`
 
+				// Scores travel with Send My Results
+				document.querySelectorAll('[data-cat-field]').forEach((el) => {
+					el.value = `${catScores[el.dataset.catField] || 0} / ${el.dataset.catMax}`
+				})
+				answeredField.value = `${answered} of ${totalQuestions}`
+				totalField.value = `${total} / ${maxScore}`
+				tierField.value = 'Not finished'
+
 				// Show results when all answered
 				if (answered === totalQuestions) {
 					resultsSection.classList.remove('hidden')
@@ -336,6 +377,7 @@ let questionNumber = 0
 
 					const tier = tiers.find(t => total >= t.min && total <= t.max) || tiers[tiers.length - 1]
 					resultTier.textContent = tier.name
+					tierField.value = tier.name
 					resultDescription.textContent = tier.desc
 
 					const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
