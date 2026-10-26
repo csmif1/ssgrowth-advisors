@@ -17,9 +17,8 @@ const {
   ogType = 'website'
 } = Astro.props
 
-const siteUrl = 'https://ssgrowthadvisors.com'
-const canonicalURL = new URL(canonical, siteUrl).href
-const ogImageURL = new URL(ogImage, siteUrl).href
+const canonicalURL = new URL(canonical, Astro.site).href
+const ogImageURL = new URL(ogImage, Astro.site).href
 ---
 
 <!DOCTYPE html>
@@ -141,7 +140,7 @@ const ogImageURL = new URL(ogImage, siteUrl).href
 				<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
 					<div>
 						<a href="/"><img src="/sslogo.svg" alt="Start & Scale" height="40" style="height:40px;width:auto;" /></a>
-						<p class="text-small text-body-light mt-3">Growth advisory for founders and operators.</p>
+						<p class="text-small text-body-light mt-3">Operating partners who meet founders and leadership teams where they are.</p>
 						<p class="text-small text-body-light mt-1">Marblehead, MA</p>
 					</div>
 					<nav aria-label="Footer navigation">

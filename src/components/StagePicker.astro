@@ -1,0 +1,32 @@
+---
+import { stages, notSureOption } from '../data/stages'
+
+export interface Props {
+	id: string
+	helper: string
+	name?: string
+	legendClass?: string
+}
+
+const { id, helper, name = 'stage', legendClass = 'text-small text-headline font-semibold mb-2' } = Astro.props
+
+const optionClass = 'flex items-center gap-3 min-h-11 px-4 py-2 bg-surface border border-border rounded cursor-pointer hover:border-accent has-[:checked]:border-accent has-[:checked]:bg-background transition-colors duration-150'
+const radioClass = 'size-4 shrink-0 accent-accent-hover cursor-pointer'
+---
+
+<fieldset aria-describedby={`${id}-help`}>
+	<legend class={legendClass}>Where are you today?</legend>
+	<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+		{stages.map((stage) => (
+			<label class={optionClass}>
+				<input type="radio" name={name} value={stage.slug} data-label={stage.label} data-spoken={stage.spoken} class={radioClass} />
+				<span class="text-body text-body"><span class="font-display font-semibold text-headline" aria-hidden="true">{stage.label}</span><span class="sr-only">{stage.spoken}</span> <span aria-hidden="true">&middot;</span> {stage.range}</span>
+			</label>
+		))}
+		<label class={optionClass}>
+			<input type="radio" name={name} value={notSureOption.slug} class={radioClass} />
+			<span class="text-body text-body">{notSureOption.label}</span>
+		</label>
+	</div>
+	<p id={`${id}-help`} class="text-small text-body mt-2">{helper}</p>
+</fieldset>

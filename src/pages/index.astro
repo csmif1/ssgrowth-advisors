@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import StructuredData from '../components/StructuredData.astro'
+import StagesSection from '../components/StagesSection.astro'
+import { companies } from '../data/experience'
 ---
 
 <BaseLayout
-	title="Start & Scale | Growth Advisory for Founders & Operators"
-	description="Revenue strategy, operations, and AI advisory for founder-led startups and SMBs scaling past the ceiling. We build the systems, teams, and technology our clients need to grow."
+	title="Start & Scale | Operating Partners for Founders"
+	description="Revenue, brand, communications, operations, fundraising, and AI advisory for founder-led startups, SMBs, and nonprofits. We build what we recommend."
 >
 	<StructuredData type="organization" />
 
@@ -16,7 +18,7 @@ import StructuredData from '../components/StructuredData.astro'
 				Your company outgrew your playbook.
 			</h1>
 			<p class="text-body-lg text-body-light mt-6 max-w-2xl">
-				We help founders and operators build the revenue engine, team structure, and systems to scale past the ceiling — from inside, not from a slide deck.
+				We help founders and operators build the revenue engine, the story that fuels it, and the team and systems to scale past the ceiling — from inside, not from a slide deck.
 			</p>
 			<div class="mt-10 flex flex-wrap gap-4 items-center">
 				<a href="https://calendly.com/chris-ssgrowthadvisors/" target="_blank" rel="noopener noreferrer" class="bg-accent text-white text-btn px-7 py-3.5 rounded hover:bg-accent-hover transition-colors duration-150 cursor-pointer inline-block">
@@ -56,35 +58,41 @@ import StructuredData from '../components/StructuredData.astro'
 	<!-- Experience Strip -->
 	<section class="bg-background py-12 sm:py-16">
 		<div class="max-w-6xl mx-auto px-5 sm:px-8 text-center">
-			<p class="text-small text-body uppercase tracking-widest mb-6">Where our team has operated</p>
-			<div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-4">
-				<span class="font-display text-headline text-xl sm:text-2xl font-semibold">WeWork</span>
-				<span class="text-border hidden sm:inline" aria-hidden="true">&mdash;</span>
-				<span class="font-display text-headline text-xl sm:text-2xl font-semibold">CloudKitchens</span>
-				<span class="text-border hidden sm:inline" aria-hidden="true">&mdash;</span>
-				<span class="font-display text-headline text-xl sm:text-2xl font-semibold">Apple</span>
-				<span class="text-border hidden sm:inline" aria-hidden="true">&mdash;</span>
-				<span class="font-display text-headline text-xl sm:text-2xl font-semibold">Barkbus</span>
-				<span class="text-border hidden sm:inline" aria-hidden="true">&mdash;</span>
-				<span class="font-display text-headline text-xl sm:text-2xl font-semibold">Teamshares</span>
-				<span class="text-border hidden sm:inline" aria-hidden="true">&mdash;</span>
-				<span class="font-display text-headline text-xl sm:text-2xl font-semibold">Allwhere</span>
-			</div>
+			<p id="experience-label" class="text-small text-body uppercase tracking-widest mb-6">Where our advisors have operated</p>
+			<ul role="list" aria-labelledby="experience-label" class="name-list flex flex-wrap justify-center items-center gap-y-3 font-display text-headline text-lg sm:text-xl font-semibold [--slash-gap:1.4em]">
+				{companies.map((company, i) => (
+					<li>
+						{company.name}
+						{i < companies.length - 1 && <span class="name-slash" aria-hidden="true" />}
+					</li>
+				))}
+			</ul>
 		</div>
 	</section>
+
+	<StagesSection />
 
 	<!-- Services Overview -->
 	<section class="bg-surface py-12 sm:py-16 lg:py-20">
 		<div class="max-w-6xl mx-auto px-5 sm:px-8">
 			<h2 class="font-display text-headline text-h2 lg:text-[3rem] lg:leading-[1.1]">What we do</h2>
-			<p class="text-body-lg text-body mt-4 max-w-2xl">Four practice areas. One organizing principle: clarity drives growth.</p>
+			<p class="text-body-lg text-body mt-4 max-w-2xl">Five practice areas. One organizing principle: clarity drives growth.</p>
 
 			<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
 				<!-- Revenue & GTM -->
 				<article class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
 					<h3 class="font-display text-headline text-h3">Revenue & GTM</h3>
 					<p class="text-body text-body mt-3">Sales process, pipeline architecture, pricing, and channel strategy. From first rep to full revenue org.</p>
-					<a href="/services" class="text-accent text-btn mt-4 inline-block group-hover:text-accent-hover transition-colors duration-150">
+					<a href="/services#revenue-gtm" class="text-accent-hover text-btn mt-4 inline-block underline-offset-4 group-hover:underline">
+						Learn how &rarr;
+					</a>
+				</article>
+
+				<!-- Brand & Communications -->
+				<article class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
+					<h3 class="font-display text-headline text-h3">Brand & Communications</h3>
+					<p class="text-body text-body mt-3">Brand identity, positioning, messaging, and communications strategy. Then we build the website that carries it.</p>
+					<a href="/services#brand-communications" class="text-accent-hover text-btn mt-4 inline-block underline-offset-4 group-hover:underline">
 						Learn how &rarr;
 					</a>
 				</article>
@@ -92,8 +100,8 @@ import StructuredData from '../components/StructuredData.astro'
 				<!-- Operations & Systems -->
 				<article class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
 					<h3 class="font-display text-headline text-h3">Operations & Systems</h3>
-					<p class="text-body text-body mt-3">CRM, marketing automation, process design, and team structure. We configure and deploy the systems ourselves.</p>
-					<a href="/services" class="text-accent text-btn mt-4 inline-block group-hover:text-accent-hover transition-colors duration-150">
+					<p class="text-body text-body mt-3">Tech stack audits, CRM, marketing automation, process design, and team structure. We configure and deploy the systems ourselves.</p>
+					<a href="/services#operations-systems" class="text-accent-hover text-btn mt-4 inline-block underline-offset-4 group-hover:underline">
 						Learn how &rarr;
 					</a>
 				</article>
@@ -102,17 +110,26 @@ import StructuredData from '../components/StructuredData.astro'
 				<article class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
 					<h3 class="font-display text-headline text-h3">Fundraising & Investor Readiness</h3>
 					<p class="text-body text-body mt-3">Deck, narrative, metrics packaging, and investor outreach strategy. Shaped by experience from stealth to IPO-track.</p>
-					<a href="/services" class="text-accent text-btn mt-4 inline-block group-hover:text-accent-hover transition-colors duration-150">
+					<a href="/services#fundraising" class="text-accent-hover text-btn mt-4 inline-block underline-offset-4 group-hover:underline">
 						Learn how &rarr;
 					</a>
 				</article>
 
-				<!-- AI & Automation Advisory -->
+				<!-- AI & Technology -->
 				<article class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
-					<h3 class="font-display text-headline text-h3">AI & Automation Advisory</h3>
-					<p class="text-body text-body mt-3">Feasibility analysis, tool selection, and implementation. We build production AI systems, not strategy decks.</p>
-					<a href="/services" class="text-accent text-btn mt-4 inline-block group-hover:text-accent-hover transition-colors duration-150">
+					<h3 class="font-display text-headline text-h3">AI & Technology</h3>
+					<p class="text-body text-body mt-3">AI pilots, workflow automation, and team rollout, inside your own environment. We build production AI systems, not strategy decks.</p>
+					<a href="/services#ai-technology" class="text-accent-hover text-btn mt-4 inline-block underline-offset-4 group-hover:underline">
 						Learn how &rarr;
+					</a>
+				</article>
+
+				<!-- Growth Readiness Assessment -->
+				<article class="bg-background p-6 lg:p-8 rounded hover:shadow-md transition-shadow duration-200 cursor-pointer group">
+					<h3 class="font-display text-headline text-h3">Growth Readiness Assessment</h3>
+					<p class="text-body text-body mt-3">32 questions across six categories. Find out where you're ready to scale and where you aren't.</p>
+					<a href="/resources" class="text-accent-hover text-btn mt-4 inline-block underline-offset-4 group-hover:underline">
+						Take the assessment &rarr;
 					</a>
 				</article>
 			</div>
@@ -123,35 +140,45 @@ import StructuredData from '../components/StructuredData.astro'
 	<section class="bg-background py-12 sm:py-16 lg:py-20">
 		<div class="max-w-6xl mx-auto px-5 sm:px-8">
 			<h2 class="font-display text-headline text-h2 lg:text-[3rem] lg:leading-[1.1]">Selected work</h2>
-			<p class="text-body-lg text-body mt-4 max-w-2xl">Outcomes from founder-led companies navigating inflection points.</p>
+			<p class="text-body-lg text-body mt-4 max-w-2xl">Outcomes from founder-led companies and nonprofits navigating inflection points.</p>
 
-			<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+				<article class="bg-surface p-6 lg:p-8 rounded">
+					<p class="font-display text-accent text-stat">19</p>
+					<p class="text-small text-body uppercase tracking-wider mt-1 mb-4">Edge Functions shipped</p>
+					<h3 class="font-display text-headline text-h4">Legal-Tech SaaS Platform</h3>
+					<p class="text-body text-body mt-2">Full-stack React/TypeScript/Supabase platform with AI document processing, built end-to-end from zero.</p>
+					<a href="/case-studies#legal-tech-saas" class="text-accent-hover text-btn mt-4 inline-block underline-offset-4 hover:underline cursor-pointer">
+						Read more &rarr;
+					</a>
+				</article>
+
+				<article class="bg-surface p-6 lg:p-8 rounded">
+					<p class="font-display text-accent text-stat">2021→2026</p>
+					<p class="text-small text-body uppercase tracking-wider mt-1 mb-4">brand and site, refreshed</p>
+					<h3 class="font-display text-headline text-h4">Local Nonprofit</h3>
+					<p class="text-body text-body mt-2">Brand refresh, website rebuild, and communications strategy for a volunteer-powered community organization.</p>
+					<a href="/case-studies#local-nonprofit" class="text-accent-hover text-btn mt-4 inline-block underline-offset-4 hover:underline cursor-pointer">
+						Read more &rarr;
+					</a>
+				</article>
+
 				<article class="bg-surface p-6 lg:p-8 rounded">
 					<p class="font-display text-accent text-stat">29</p>
 					<p class="text-small text-body uppercase tracking-wider mt-1 mb-4">states, one system</p>
 					<h3 class="font-display text-headline text-h4">National Nonprofit</h3>
 					<p class="text-body text-body mt-2">Fundraising infrastructure and technology modernization for a 15-year-old organization across 29 states.</p>
-					<a href="/case-studies" class="text-accent text-btn mt-4 inline-block hover:text-accent-hover transition-colors duration-150 cursor-pointer">
+					<a href="/case-studies#national-nonprofit" class="text-accent-hover text-btn mt-4 inline-block underline-offset-4 hover:underline cursor-pointer">
 						Read more &rarr;
 					</a>
 				</article>
 
 				<article class="bg-surface p-6 lg:p-8 rounded">
 					<p class="font-display text-accent text-stat">0→1</p>
-					<p class="text-small text-body uppercase tracking-wider mt-1 mb-4">GTM build</p>
+					<p class="text-small text-body uppercase tracking-wider mt-1 mb-4">market-ready</p>
 					<h3 class="font-display text-headline text-h4">Off-Grid Education Startup</h3>
 					<p class="text-body text-body mt-2">Complete go-to-market strategy, brand positioning, and marketing infrastructure for a new entrant in a niche market.</p>
-					<a href="/case-studies" class="text-accent text-btn mt-4 inline-block hover:text-accent-hover transition-colors duration-150 cursor-pointer">
-						Read more &rarr;
-					</a>
-				</article>
-
-				<article class="bg-surface p-6 lg:p-8 rounded">
-					<p class="font-display text-accent text-stat">19</p>
-					<p class="text-small text-body uppercase tracking-wider mt-1 mb-4">Edge Functions shipped</p>
-					<h3 class="font-display text-headline text-h4">Legal-Tech SaaS Platform</h3>
-					<p class="text-body text-body mt-2">Full-stack React/TypeScript/Supabase platform with AI document processing, built end-to-end from zero.</p>
-					<a href="/case-studies" class="text-accent text-btn mt-4 inline-block hover:text-accent-hover transition-colors duration-150 cursor-pointer">
+					<a href="/case-studies#off-grid-education" class="text-accent-hover text-btn mt-4 inline-block underline-offset-4 hover:underline cursor-pointer">
 						Read more &rarr;
 					</a>
 				</article>

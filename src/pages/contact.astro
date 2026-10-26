@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import StructuredData from '../components/StructuredData.astro'
+import StagePicker from '../components/StagePicker.astro'
 ---
 
 <BaseLayout
-	title="Contact | Start & Scale Growth Advisory"
-	description="Book a 30-minute call or send a message. No pitch, no pressure. Growth advisory for founders and operators."
+	title="Contact | Start & Scale"
+	description="Book a 30-minute call or send a message. No pitch, no pressure. Operating partners who meet founders and leadership teams where they are."
 	canonical="/contact"
 >
 	<StructuredData type="organization" />
@@ -44,7 +45,7 @@ import StructuredData from '../components/StructuredData.astro'
 
 							<form class="mt-6 sm:mt-8 space-y-5 sm:space-y-6" action="#" method="POST">
 								<div>
-									<label for="name" class="text-small text-headline font-semibold block mb-2">Name <span class="text-accent">*</span></label>
+									<label for="name" class="text-small text-headline font-semibold block mb-2">Name <span class="text-accent-hover">*</span></label>
 									<input
 										type="text"
 										id="name"
@@ -56,7 +57,7 @@ import StructuredData from '../components/StructuredData.astro'
 								</div>
 
 								<div>
-									<label for="email" class="text-small text-headline font-semibold block mb-2">Email <span class="text-accent">*</span></label>
+									<label for="email" class="text-small text-headline font-semibold block mb-2">Email <span class="text-accent-hover">*</span></label>
 									<input
 										type="email"
 										id="email"
@@ -68,7 +69,7 @@ import StructuredData from '../components/StructuredData.astro'
 								</div>
 
 								<div>
-									<label for="company" class="text-small text-headline font-semibold block mb-2">Company</label>
+									<label for="company" class="text-small text-headline font-semibold block mb-2">Company or organization</label>
 									<input
 										type="text"
 										id="company"
@@ -77,6 +78,8 @@ import StructuredData from '../components/StructuredData.astro'
 										placeholder="Your company"
 									/>
 								</div>
+
+								<StagePicker id="contact-stage" helper="Annual revenue, or annual budget for nonprofits." />
 
 								<div>
 									<label for="message" class="text-small text-headline font-semibold block mb-2">Message</label>
@@ -101,10 +104,17 @@ import StructuredData from '../components/StructuredData.astro'
 
 					<!-- Location -->
 					<div class="mt-10 sm:mt-16 pt-8 border-t border-border">
-						<p class="text-small text-body">Marblehead, MA &middot; Working with founders and operators everywhere.</p>
+						<p class="text-small text-body">Marblehead, MA &middot; Working with founders, operators, and nonprofits everywhere.</p>
 					</div>
 				</div>
 			</section>
+
+	<script>
+		// Pre-pick the stage when the page opens from a stage link, e.g. /contact?stage=10-50
+		const stage = new URLSearchParams(window.location.search).get('stage')
+		const match = Array.from(document.querySelectorAll('input[name="stage"]')).find((input) => input.value === stage)
+		if (match) match.checked = true
+	</script>
 
 	<!-- Calendly embed script -->
 	<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
