@@ -137,13 +137,13 @@ const ogImageURL = new URL(ogImage, Astro.site).href
 		<!-- Footer -->
 		<footer class="bg-dark py-12 sm:py-16 border-t border-dark-surface">
 			<div class="max-w-6xl mx-auto px-5 sm:px-8">
-				<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-					<div>
+				<div class="grid grid-cols-1 sm:grid-cols-12 gap-8">
+					<div class="sm:col-span-6">
 						<a href="/"><img src="/sslogo.svg" alt="Start & Scale" height="40" style="height:40px;width:auto;" /></a>
-						<p class="text-small text-body-light mt-3">Operating partners who meet founders and leadership teams where they are.</p>
-						<p class="text-small text-body-light mt-1">Marblehead, MA</p>
+						<p class="text-body text-body-light mt-4 max-w-sm">Operating partners who meet founders and leadership teams where they are.</p>
+						<p class="text-body text-body-light mt-2">Marblehead, MA</p>
 					</div>
-					<nav aria-label="Footer navigation">
+					<nav aria-label="Footer navigation" class="sm:col-span-3">
 						<p class="text-small text-body-light uppercase tracking-widest mb-4">Navigate</p>
 						<div class="flex flex-col gap-2">
 							<a href="/about" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">About</a>
@@ -152,7 +152,7 @@ const ogImageURL = new URL(ogImage, Astro.site).href
 							<a href="/blog" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Blog</a>
 						</div>
 					</nav>
-					<nav aria-label="Footer connect">
+					<nav aria-label="Footer connect" class="sm:col-span-3">
 						<p class="text-small text-body-light uppercase tracking-widest mb-4">Connect</p>
 						<div class="flex flex-col gap-2">
 							<a href="/contact" class="text-body text-body-light hover:text-accent-muted transition-colors duration-150 cursor-pointer">Contact</a>
